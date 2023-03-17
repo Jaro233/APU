@@ -1,0 +1,333 @@
+Version: 2
+
+Alternatives: &alternatives
+ HB:
+    waga: 4.3
+    cena: 300 zl
+    liczba_opinii: 0
+    ocena_klientow: 0
+    status_opinii: nie ma
+ Curver:
+    waga: 4.4 
+    cena: 800 zl
+    liczba_opinii: 40
+    ocena_klientow: 0.5
+    status_opinii: mniej niz 50 opinii
+ Ravanson:
+    waga: 4.5
+    cena: 1500 zl
+    liczba_opinii: 80
+    ocena_klientow: 1
+    status_opinii: 50-100 opinii
+ QVANT:
+    waga: 4.6
+    cena: 2000 zl
+    liczba_opinii: 120
+    ocena_klientow: 1.5
+    status_opinii: wiecej niz 100 opinii
+ Yeticool:
+    waga: 4.7
+    cena: 3000 zl
+    liczba_opinii: 130
+    ocena_klientow: 2
+    status_opinii: wiecej niz 100 opinii
+ G21:
+    waga: 4.7
+    cena: 450 zl
+    liczba_opinii: 10
+    ocena_klientow: 2.5
+    status_opinii: mniej niz 50 opinii
+ Camry:
+    waga: 4.2
+    cena: 600 zl
+    liczba_opinii: 70
+    ocena_klientow: 3
+    status_opinii: 50-100 opinii
+ Dometic:
+    waga: 4.3
+    cena: 900 zl
+    liczba_opinii: 80
+    ocena_klientow: 3.5
+    status_opinii: 50-100 opinii
+ Sencor:
+    waga: 4.4
+    cena: 1200 zl
+    liczba_opinii: 40
+    ocena_klientow: 4
+    status_opinii: mniej niz 50 opinii
+ Aisberg:
+    waga: 4.9
+    cena: 1300 zl
+    liczba_opinii: 20
+    ocena_klientow: 4.5
+    status_opinii: mniej niz 50 opinii
+ Mobicool:
+    waga: 4.9
+    cena: 100 zl
+    liczba_opinii: 90
+    ocena_klientow: 5
+    status_opinii: 50-100 opinii
+ Polarbox:
+    waga: 4.7
+    cena: 150 zl
+    liczba_opinii: 150
+    ocena_klientow: 0
+    status_opinii: wiecej niz 100 opinii
+ Fresh:
+    waga: 4.7
+    cena: 200 zl
+    liczba_opinii: 25
+    ocena_klientow: 0.5
+    status_opinii: mniej niz 50 opinii
+ Newestcool:
+    waga: 4.8
+    cena: 300 zl
+    liczba_opinii: 55
+    ocena_klientow: 1
+    status_opinii: 50-100 opinii
+ Fantastic:
+    waga: 5
+    cena: 500 zl
+    liczba_opinii: 5
+    ocena_klientow: 1.5
+    status_opinii: mniej niz 50 opinii
+ Polarbox2.0:
+    waga: 5.5
+    cena: 550 zl
+    liczba_opinii: 15
+    ocena_klientow: 2
+    status_opinii: mniej niz 50 opinii
+ CV60:
+    waga: 5
+    cena: 2000
+    liczba_opinii: 12
+    ocena_klientow: 2.5
+    status_opinii: mniej niz 50 opinii
+ CV70:
+    waga: 4.5
+    cena: 2400 zl
+    liczba_opinii: 11 
+    ocena_klientow: 3
+    status_opinii: mniej niz 50 opinii
+ CV80:
+    waga: 2
+    cena: 1000 zl
+    liczba_opinii: 5
+    ocena_klientow: 3.5
+    status_opinii: mniej niz 50 opinii
+ CV90:
+    waga: 1
+    cena: 800 zl
+    liczba_opinii: 2
+    ocena_klientow: 4
+    status_opinii: mniej niz 50 opinii
+
+
+Goal:
+ name: Buy Tourist Fridge
+ author: Jarosław Waliczek
+ preferences:
+  pairwise:
+  - [efficiency, quality, 3]
+  - [efficiency, style, 8]
+  - [efficiency, price, 6]
+  - [quality, style, 6]
+  - [quality, price, 6]
+  - [style,   price, 3]
+ children:
+  efficiency:
+   preferences:
+    pairwise:
+     - [ HB,  Curver, 7]
+     - [ HB,  Ravanson, 1/3]
+     - [ HB,  QVANT, 1/4]
+     - [ HB,  Yeticool, 1/5]
+     - [ HB,  G21, 5]
+     - [ HB,  Camry, 1/4]
+     - [ HB,  Dometic, 1/9]
+     - [ HB,  Sencor, 1/6]
+     - [ HB,  Aisberg, 6]
+     - [ Curver,  Mobicool, 1/7]
+     - [ Curver,  Polarbox, 1/6]
+     - [ Curver,  Fresh, 1/6]
+     - [ Curver,  Newestcool, 2]
+     - [ Curver,  Fantastic, 1/7]
+     - [ Curver,  Polarbox2.0, 1/9]
+     - [ Curver,  CV60, 1/6]
+     - [ Curver,  CV70, 3]
+     - [ Ravanson,  CV80, 1/3]
+     - [ Ravanson,  CV90, 1/4]
+     - [ Ravanson,  Curver, 4]
+     - [ Ravanson,  Ravanson, 1/2]
+     - [ Ravanson,  QVANT, 1/4]
+     - [ Ravanson,  Yeticool, 3]
+     - [ Ravanson,  G21, 6]
+     - [ Ravanson,  Camry, 1/2]
+     - [ Ravanson,  Dometic, 6]
+     - [ Ravanson,  Sencor, 1/3]
+     - [ Ravanson,  Aisberg, 1/8]
+     - [ Ravanson,  Mobicool, 1/3]
+     - [ Ravanson,  Polarbox, 4]
+     - [ Ravanson,  Fresh, 3]
+     - [ Ravanson,  Newestcool, 1/6]
+     - [ Ravanson,  Fantastic, 1/5]
+     - [ Ravanson,   Polarbox2.0, 3]
+     - [ Ravanson,  CV60, 7]
+     - [ QVANT,  CV70, 1/8]
+     - [ QVANT,  CV80, 1/9]
+     - [ QVANT,  Bosch KGN39MB3A, 1/6]
+     - [ QVANT,  CV90, 1/2]
+     - [ Yeticool,  HB, 1/3]
+     - [ Yeticool,  Curver, 3]
+     - [ Yeticool,  Ravanson, 8]
+     - [ G21,  QVANT, 4]
+     - [ G21,  Yeticool, 8]
+     - [ Camry,  G21, 4]
+   children: *alternatives
+  quality:
+   preferences:
+    pairwise:
+     - [ HB,  Curver, 8]
+     - [ HB,  Ravanson, 1/3]
+     - [ HB,  QVANT, 1/3]
+     - [ HB,  Yeticool, 1/3]
+     - [ HB,  G21, 9]
+     - [ HB,  Camry, 1/3]
+     - [ HB,  Dometic, 1/4]
+     - [ HB,  Sencor, 1/2]
+     - [ HB,  Aisberg, 4]
+     - [ Curver,  Mobicool, 1/8]
+     - [ Curver,  Polarbox, 1/7]
+     - [ Curver,  Fresh, 1/9]
+     - [ Curver,  Newestcool, 2]
+     - [ Curver,  Fantastic, 1/6]
+     - [ Curver,  Polarbox2.0, 1/8]
+     - [ Curver,  CV60, 1/6]
+     - [ Curver,  CV70, 1]
+     - [ Ravanson,  CV80, 1/3]
+     - [ Ravanson,  CV90, 2]
+     - [ Ravanson,  Curver, 6]
+     - [ Ravanson,  Ravanson, 1/4]
+     - [ Ravanson,  QVANT, 1/6]
+     - [ Ravanson,  Yeticool, 1/3]
+     - [ Ravanson,  G21, 6]
+     - [ Ravanson,  Camry, 4]
+     - [ Ravanson,  Dometic, 6]
+     - [ Ravanson,  Sencor, 1/7]
+     - [ Ravanson,  Aisberg, 4]
+     - [ Ravanson,  Mobicool, 1/2]
+     - [ Ravanson,  Polarbox, 4]
+     - [ Ravanson,  Fresh, 3]
+     - [ Ravanson,  Newestcool, 1/5]
+     - [ Ravanson,  Fantastic, 1/6]
+     - [ Ravanson,   Polarbox2.0, 5]
+     - [ Ravanson,  CV60, 7]
+     - [ QVANT,  CV70, 1/4]
+     - [ QVANT,  CV80, 1/5]
+     - [ QVANT,  Bosch KGN39MB3A, 1/6]
+     - [ QVANT,  CV90, 1/2]
+     - [ Yeticool,  HB, 1]
+     - [ Yeticool,  Curver, 5]
+     - [ Yeticool,  Ravanson, 9]
+     - [ G21,  QVANT, 6]
+     - [ G21,  Yeticool, 9]
+     - [ Camry,  G21, 6]
+   children: *alternatives
+  style:
+   preferences:
+    pairwise:
+     - [ HB,  Curver, 4]
+     - [ HB,  Ravanson, 6]
+     - [ HB,  QVANT, 1/4]
+     - [ HB,  Yeticool, 1/5]
+     - [ HB,  G21, 5]
+     - [ HB,  Camry, 1/4]
+     - [ HB,  Dometic, 1/9]
+     - [ HB,  Sencor, 1/6]
+     - [ HB,  Aisberg, 7]
+     - [ Curver,  Mobicool, 1/7]
+     - [ Curver,  Polarbox, 1/6]
+     - [ Curver,  Fresh, 1/4]
+     - [ Curver,  Newestcool, 3]
+     - [ Curver,  Fantastic, 1/5]
+     - [ Curver,  Polarbox2.0, 1/9]
+     - [ Curver,  CV60, 1/6]
+     - [ Curver,  CV70, 2]
+     - [ Ravanson,  CV80, 1/3]
+     - [ Ravanson,  CV90, 1/7]
+     - [ Ravanson,  Curver, 5]
+     - [ Ravanson,  Ravanson, 1/3]
+     - [ Ravanson,  QVANT, 1/6]
+     - [ Ravanson,  Yeticool, 2]
+     - [ Ravanson,  G21, 5]
+     - [ Ravanson,  Camry, 1/3]
+     - [ Ravanson,  Dometic, 5]
+     - [ Ravanson,  Sencor, 1/3]
+     - [ Ravanson,  Aisberg, 1/8]
+     - [ Ravanson,  Mobicool, 1/8]
+     - [ Ravanson,  Polarbox, 8]
+     - [ Ravanson,  Fresh, 3]
+     - [ Ravanson,  Newestcool, 1/2]
+     - [ Ravanson,  Fantastic, 1/3]
+     - [ Ravanson,   Polarbox2.0, 1]
+     - [ Ravanson,  CV60, 8]
+     - [ QVANT,  CV70, 1/7]
+     - [ QVANT,  CV80, 1/8]
+     - [ QVANT,  Bosch KGN39MB3A, 1/6]
+     - [ QVANT,  CV90, 1/2]
+     - [ Yeticool,  HB, 1/3]
+     - [ Yeticool,  Curver, 4]
+     - [ Yeticool,  Ravanson, 5]
+     - [ G21,  QVANT, 7]
+     - [ G21,  Yeticool, 6]
+     - [ Camry,  G21, 3]
+   children: *alternatives
+  price:
+   preferences:
+    pairwise:
+     - [ HB,  Curver, 6]
+     - [ HB,  Ravanson, 3]
+     - [ HB,  QVANT, 3]
+     - [ HB,  Yeticool, 3]
+     - [ HB,  G21, 7]
+     - [ HB,  Camry, 5]
+     - [ HB,  Dometic, 9]
+     - [ HB,  Sencor, 8]
+     - [ HB,  Aisberg, 8]
+     - [ Curver,  Mobicool, 1/4]
+     - [ Curver,  Polarbox, 1/6]
+     - [ Curver,  Fresh, 1/7]
+     - [ Curver,  Newestcool, 3]
+     - [ Curver,  Fantastic, 1/5]
+     - [ Curver,  Polarbox2.0, 1/3]
+     - [ Curver,  CV60, 1]
+     - [ Curver,  CV70, 2]
+     - [ Ravanson,  CV80, 4]
+     - [ Ravanson,  CV90, 5]
+     - [ Ravanson,  Curver, 1/4]
+     - [ Ravanson,  Ravanson, 1/3]
+     - [ Ravanson,  QVANT, 1/6]
+     - [ Ravanson,  Yeticool, 3]
+     - [ Ravanson,  G21, 6]
+     - [ Ravanson,  Camry, 1/3]
+     - [ Ravanson,  Dometic, 9]
+     - [ Ravanson,  Sencor, 1/4]
+     - [ Ravanson,  Aisberg, 1/8]
+     - [ Ravanson,  Mobicool, 1/3]
+     - [ Ravanson,  Polarbox, 5]
+     - [ Ravanson,  Fresh, 2]
+     - [ Ravanson,  Newestcool, 1/8]
+     - [ Ravanson,  Fantastic, 1/2]
+     - [ Ravanson,   Polarbox2.0, 1/5]
+     - [ Ravanson,  CV60, 7]
+     - [ QVANT,  CV70, 1/5]
+     - [ QVANT,  CV80, 1/4]
+     - [ QVANT,  Bosch KGN39MB3A, 1/4]
+     - [ QVANT,  CV90, 1/2]
+     - [ Yeticool,  HB, 1/3]
+     - [ Yeticool,  Curver, 7]
+     - [ Yeticool,  Ravanson, 7]
+     - [ G21,  QVANT, 7]
+     - [ G21,  Yeticool, 8]
+     - [ Camry,  G21, 4]
+   children: *alternatives

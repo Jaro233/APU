@@ -1,0 +1,206 @@
+> library(ahp)
+> library(data.tree)
+> setwd("C:/Users/jaro9/Downloads/APU-master/Zad2")
+> treeAhp <- Load("tree_design.yml")
+> print(treeAhp, filterFun = isNotLeaf)
+           levelName
+1 Buy Tourist Fridge
+2  ¦--efficiency    
+3  ¦--quality       
+4  ¦--style         
+5  °--price         
+> Calculate(treeAhp)
+> print(treeAhp, priority = function(x) x$parent$priority["Total", x$name])
+             levelName   priority
+1  Buy Tourist Fridge          NA
+2   ¦--efficiency      0.56487557
+3   ¦   ¦--HB          0.05537745
+4   ¦   ¦--Curver      0.02838592
+5   ¦   ¦--Ravanson    0.06925397
+6   ¦   ¦--QVANT       0.04304680
+7   ¦   ¦--Yeticool    0.05289813
+8   ¦   ¦--G21         0.04921753
+9   ¦   ¦--Camry       0.05005602
+10  ¦   ¦--Dometic     0.05013814
+11  ¦   ¦--Sencor      0.05122708
+12  ¦   ¦--Aisberg     0.05206801
+13  ¦   ¦--Mobicool    0.04736995
+14  ¦   ¦--Polarbox    0.03944973
+15  ¦   ¦--Fresh       0.03965861
+16  ¦   ¦--Newestcool  0.04821156
+17  ¦   ¦--Fantastic   0.05238294
+18  ¦   ¦--Polarbox2.0 0.04274070
+19  ¦   ¦--CV60        0.03918118
+20  ¦   ¦--CV70        0.04641375
+21  ¦   ¦--CV80        0.05366963
+22  ¦   °--CV90        0.04527024
+23  ¦--quality         0.30028868
+24  ¦   ¦--HB          0.05537950
+25  ¦   ¦--Curver      0.02345534
+26  ¦   ¦--Ravanson    0.09203022
+27  ¦   ¦--QVANT       0.05032975
+28  ¦   ¦--Yeticool    0.06412727
+29  ¦   ¦--G21         0.05763698
+30  ¦   ¦--Camry       0.04794399
+31  ¦   ¦--Dometic     0.03927482
+32  ¦   ¦--Sencor      0.05795297
+33  ¦   ¦--Aisberg     0.03206463
+34  ¦   ¦--Mobicool    0.04528696
+35  ¦   ¦--Polarbox    0.03863539
+36  ¦   ¦--Fresh       0.04060301
+37  ¦   ¦--Newestcool  0.04889831
+38  ¦   ¦--Fantastic   0.05686667
+39  ¦   ¦--Polarbox2.0 0.03931508
+40  ¦   ¦--CV60        0.03743435
+41  ¦   ¦--CV70        0.04149345
+42  ¦   ¦--CV80        0.04994327
+43  ¦   °--CV90        0.03620579
+44  ¦--style           0.08308047
+45  ¦   ¦--HB          0.06571672
+46  ¦   ¦--Curver      0.02749035
+47  ¦   ¦--Ravanson    0.06593873
+48  ¦   ¦--QVANT       0.04784755
+49  ¦   ¦--Yeticool    0.04514643
+50  ¦   ¦--G21         0.04915427
+51  ¦   ¦--Camry       0.05108326
+52  ¦   ¦--Dometic     0.05271692
+53  ¦   ¦--Sencor      0.05226877
+54  ¦   ¦--Aisberg     0.05029254
+55  ¦   ¦--Mobicool    0.05821165
+56  ¦   ¦--Polarbox    0.03864361
+57  ¦   ¦--Fresh       0.03716754
+58  ¦   ¦--Newestcool  0.03749322
+59  ¦   ¦--Fantastic   0.04444446
+60  ¦   ¦--Polarbox2.0 0.04366010
+61  ¦   ¦--CV60        0.03864361
+62  ¦   ¦--CV70        0.04557186
+63  ¦   ¦--CV80        0.05249601
+64  ¦   °--CV90        0.05166103
+65  °--price           0.05175529
+66      ¦--HB          0.10602724
+67      ¦--Curver      0.03815772
+68      ¦--Ravanson    0.06941204
+69      ¦--QVANT       0.04085341
+70      ¦--Yeticool    0.05577233
+71      ¦--G21         0.05304565
+72      ¦--Camry       0.04427061
+73      ¦--Dometic     0.03080173
+74      ¦--Sencor      0.04070612
+75      ¦--Aisberg     0.05083822
+76      ¦--Mobicool    0.04573608
+77      ¦--Polarbox    0.04142855
+78      ¦--Fresh       0.04358094
+79      ¦--Newestcool  0.05329547
+80      ¦--Fantastic   0.04459553
+81      ¦--Polarbox2.0 0.04940965
+82      ¦--CV60        0.03432144
+83      ¦--CV70        0.04175975
+84      ¦--CV80        0.03906537
+85      °--CV90        0.03595703
+> Visualize(treeAhp)
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+> Analyze(treeAhp)
+                     Weight Ravanson   HB Yeticool Sencor Fantastic  G21 CV80 Camry Newestcool Mobicool Dometic Aisberg
+1 Buy Tourist Fridge  95.6%     7.6% 5.9%     5.6%   5.3%      5.3% 5.2% 5.2%  4.9%       4.8%     4.8%    4.6%    4.6%
+2  ¦--efficiency      54.0%     3.9% 3.1%     3.0%   2.9%      3.0% 2.8% 3.0%  2.8%       2.7%     2.7%    2.8%    2.9%
+3  ¦--quality         28.7%     2.8% 1.7%     1.9%   1.7%      1.7% 1.7% 1.5%  1.4%       1.5%     1.4%    1.2%    1.0%
+4  ¦--style            7.9%     0.5% 0.5%     0.4%   0.4%      0.4% 0.4% 0.4%  0.4%       0.3%     0.5%    0.4%    0.4%
+5  °--price            5.0%     0.4% 0.5%     0.3%   0.2%      0.2% 0.3% 0.2%  0.2%       0.3%     0.2%    0.2%    0.3%
+  QVANT CV70 CV90 Polarbox2.0 Fresh Polarbox CV60 Curver Inconsistency
+1  4.6% 4.5% 4.3%        4.2%  4.0%     3.9% 3.8%   2.7%         12.1%
+2  2.4% 2.6% 2.6%        2.4%  2.2%     2.2% 2.2%   1.6%         20.2%
+3  1.5% 1.2% 1.1%        1.2%  1.2%     1.2% 1.1%   0.7%         20.5%
+4  0.4% 0.4% 0.4%        0.4%  0.3%     0.3% 0.3%   0.2%         21.2%
+5  0.2% 0.2% 0.2%        0.3%  0.2%     0.2% 0.2%   0.2%         19.5%
+> AnalyzeTable(treeAhp)
