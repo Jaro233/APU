@@ -1,0 +1,88 @@
+> library("C50")
+> setwd("C:/Users/jaro9/OneDrive/Desktop/apu/Zad4")
+> dane <- read.csv('lodowki.csv')
+> dane$ocena_klientow <- factor(dane$ocena_klientow)
+> head(dane)
+                                  nazwa pojemnosc waga cena liczba_opinii ocena_klientow         status_opinii
+1                 RAVEN ELT002N 12/230V      24.7  4.3  300             0              0                nie ma
+2 RAVEN ELT001N 12/230V (szaro-zielony)      30.0  4.4  800            40            0.5   mniej niz 50 opinii
+3                         Yeticool BX30      27.9  4.5 1500            80              1         50-100 opinii
+4                         Yeticool BX40      28.0  4.6 1000           120            1.5 wiecej niz 100 opinii
+5                     Sencor SCM 3224BL      25.7  4.7 1000           130              2 wiecej niz 100 opinii
+6                         Yeticool CX10      28.4  4.7  450            10            2.5   mniej niz 50 opinii
+> treeModel <- C5.0(x=dane[,2:5], y=dane$ocena_klientow)
+> treeModel
+
+Call:
+C5.0.default(x = dane[, 2:5], y = dane$ocena_klientow)
+
+Classification Tree
+Number of samples: 20 
+Number of predictors: 4 
+
+Tree size: 6 
+
+Non-standard options: attempt to group attributes
+
+> summary(treeModel)
+
+Call:
+C5.0.default(x = dane[, 2:5], y = dane$ocena_klientow)
+
+
+C5.0 [Release 2.07 GPL Edition]  	Mon Apr 10 12:53:49 2023
+-------------------------------
+
+Class specified by attribute `outcome'
+
+Read 20 cases (5 attributes) from undefined.data
+
+Decision tree:
+
+pojemnosc <= 29:
+:...waga <= 4.5: 3 (4/2)
+:   waga > 4.5:
+:   :...pojemnosc <= 25.7: 2 (2)
+:       pojemnosc > 25.7: 1.5 (5/3)
+pojemnosc > 29:
+:...liczba_opinii > 80: 0 (2/1)
+    liczba_opinii <= 80:
+    :...cena <= 800: 0.5 (3/1)
+        cena > 800: 3.5 (4/2)
+
+
+Evaluation on training data (20 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	     6    9(45.0%)   <<
+
+
+	   (a)   (b)   (c)   (d)   (e)   (f)   (g)   (h)   (i)   (j)   (k)    <-classified as
+	  ----  ----  ----  ----  ----  ----  ----  ----  ----  ----  ----
+	     1                                   1                            (a): class 0
+	           2                                                          (b): class 0.5
+	                       1                 1                            (c): class 1
+	                       2                                              (d): class 1.5
+	                             2                                        (e): class 2
+	                       2                                              (f): class 2.5
+	                                         2                            (g): class 3
+	                                               2                      (h): class 3.5
+	           1                                   1                      (i): class 4
+	                                               1                      (j): class 4.5
+	     1                                                                (k): class 5
+
+
+	Attribute usage:
+
+	100.00%	pojemnosc
+	 55.00%	waga
+	 45.00%	liczba_opinii
+	 35.00%	cena
+
+
+Time: 0.0 secs
+
+> plot(treeModel)
