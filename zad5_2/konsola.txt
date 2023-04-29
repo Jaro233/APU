@@ -1,0 +1,123 @@
+install.packages("randomForest")
+Error in install.packages : Updating loaded packages
+> library(randomForest)
+> library(e1071)
+> library(party)
+> library(mlr)
+> library(rFerns)
+> setwd("C:/Users/jaro9/OneDrive/Desktop/apu/zad5_2")
+> lodowki_turystyczne=read.csv("lodowki.csv")
+> lodowki_turystyczne <- lodowki_turystyczne [1:6]
+> lodowki_turystyczne$nazwa = factor(lodowki_turystyczne$nazwa)
+> lodowki_turystyczne$ocena_klientow = factor(lodowki_turystyczne$ocena_klientow)
+> summarizeColumns(lodowki_turystyczne)
+            name    type na    mean       disp median       mad   min    max nlevs
+1          nazwa  factor  0      NA   0.900000     NA        NA   1.0    2.0    18
+2      pojemnosc numeric  0  27.385   5.620664   28.7   1.40847   4.9   33.0     0
+3           waga numeric  0   4.405   1.061020    4.7   0.37065   1.0    5.5     0
+4           cena integer  0 752.500 427.500385  800.0 481.84500 100.0 1500.0     0
+5  liczba_opinii integer  0  48.000  46.687088   32.5  40.77150   0.0  150.0     0
+6 ocena_klientow  factor  0      NA   0.900000     NA        NA   1.0    2.0    11
+> rdesc = makeResampleDesc("CV", iters = 10)
+> task = makeClassifTask(id = deparse(substitute(lodowki_turystyczne)), lodowki_turystyczne, "ocena",
++                        weights = NULL, blocking = NULL, coordinates = NULL,
++                        positive = NA_character_, fixup.data = "warn", check.data = TRUE)
+Error in makeSupervisedTask("classif", data, target, weights, blocking,  : 
+  Column names of data doesn't contain target var: ocena
+> task = makeClassifTask(id = deparse(substitute(lodowki_turystyczne)), lodowki_turystyczne, "ocena_klientow",
++                        weights = NULL, blocking = NULL, coordinates = NULL,
++                        positive = NA_character_, fixup.data = "warn", check.data = TRUE)
+> lrns <- makeLearners(c("rpart", "C50", "ctree", "naiveBayes", "randomForest"), type = "classif")
+> bmr <- benchmark(learners = lrns, tasks = task, rdesc, models = TRUE, measures = list(acc, ber))
+Task: lodowki_turystyczne, Learner: classif.rpart
+Resampling: cross-validation
+Measures:             acc       ber       
+[Resample] iter 1:    0.0000000      NaN  
+[Resample] iter 2:    0.0000000      NaN  
+[Resample] iter 3:    0.0000000      NaN  
+[Resample] iter 4:    0.0000000      NaN  
+[Resample] iter 5:    0.0000000      NaN  
+[Resample] iter 6:    0.0000000      NaN  
+[Resample] iter 7:    0.0000000      NaN  
+[Resample] iter 8:    0.0000000      NaN  
+[Resample] iter 9:    0.0000000      NaN  
+[Resample] iter 10:   0.0000000      NaN  
+
+
+Aggregated Result: acc.test.mean=0.0000000,ber.test.mean=     NaN
+
+
+Task: lodowki_turystyczne, Learner: classif.C50
+Resampling: cross-validation
+Measures:             acc       ber       
+[Resample] iter 1:    0.0000000      NaN  
+[Resample] iter 2:    0.0000000      NaN  
+[Resample] iter 3:    0.0000000      NaN  
+[Resample] iter 4:    0.0000000      NaN  
+[Resample] iter 5:    0.0000000      NaN  
+[Resample] iter 6:    0.0000000      NaN  
+[Resample] iter 7:    0.0000000      NaN  
+[Resample] iter 8:    0.0000000      NaN  
+[Resample] iter 9:    0.0000000      NaN  
+[Resample] iter 10:   0.0000000      NaN  
+
+
+Aggregated Result: acc.test.mean=0.0000000,ber.test.mean=     NaN
+
+
+Task: lodowki_turystyczne, Learner: classif.ctree
+Resampling: cross-validation
+Measures:             acc       ber       
+[Resample] iter 1:    0.0000000      NaN  
+[Resample] iter 2:    0.0000000      NaN  
+[Resample] iter 3:    0.0000000      NaN  
+[Resample] iter 4:    0.0000000      NaN  
+[Resample] iter 5:    0.0000000      NaN  
+[Resample] iter 6:    0.0000000      NaN  
+[Resample] iter 7:    0.0000000      NaN  
+[Resample] iter 8:    0.0000000      NaN  
+[Resample] iter 9:    0.0000000      NaN  
+[Resample] iter 10:   0.0000000      NaN  
+
+
+Aggregated Result: acc.test.mean=0.0000000,ber.test.mean=     NaN
+
+
+Task: lodowki_turystyczne, Learner: classif.naiveBayes
+Resampling: cross-validation
+Measures:             acc       ber       
+[Resample] iter 1:    0.0000000      NaN  
+[Resample] iter 2:    0.0000000      NaN  
+[Resample] iter 3:    0.0000000      NaN  
+[Resample] iter 4:    0.0000000      NaN  
+[Resample] iter 5:    0.0000000      NaN  
+[Resample] iter 6:    0.0000000      NaN  
+[Resample] iter 7:    0.0000000      NaN  
+[Resample] iter 8:    0.0000000      NaN  
+[Resample] iter 9:    0.0000000      NaN  
+[Resample] iter 10:   0.0000000      NaN  
+
+
+Aggregated Result: acc.test.mean=0.0000000,ber.test.mean=     NaN
+
+
+Task: lodowki_turystyczne, Learner: classif.randomForest
+Resampling: cross-validation
+Measures:             acc       ber       
+[Resample] iter 1:    0.0000000      NaN  
+[Resample] iter 2:    0.0000000      NaN  
+[Resample] iter 3:    0.0000000      NaN  
+[Resample] iter 4:    0.0000000      NaN  
+[Resample] iter 5:    0.0000000      NaN  
+[Resample] iter 6:    0.0000000      NaN  
+[Resample] iter 7:    0.0000000      NaN  
+[Resample] iter 8:    0.0000000      NaN  
+[Resample] iter 9:    0.0000000      NaN  
+[Resample] iter 10:   0.0000000      NaN  
+
+
+Aggregated Result: acc.test.mean=0.0000000,ber.test.mean=     NaN
+
+
+> p = getBMRPredictions(bmr)
+> plotBMRSummary(bmr)
