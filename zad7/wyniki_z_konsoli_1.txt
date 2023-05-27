@@ -1,0 +1,367 @@
+
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd("G:/ATH/Apu/LAB/LAB7/Workspace")
+> #load libraries
+> #install.packages("tm")
+> #install.packages("SnowballC")
+> #install.packages("wordcloud")
+> #install.packages("RColorBrewer")
+> #install.packages("syuzhet")
+> #install.packages("ggplot2")
+> library("tm")
+Ładowanie wymaganego pakietu: NLP
+> library("SnowballC")
+> library("wordcloud")
+Ładowanie wymaganego pakietu: RColorBrewer
+> library("RColorBrewer")
+> library("syuzhet")
+> library("ggplot2")
+
+Dołączanie pakietu: ‘ggplot2’
+
+Następujący obiekt został zakryty z ‘package:NLP’:
+
+    annotate
+
+> #read text
+> text <- readLines("ml.txt", warn=FALSE)
+> #convert text to object
+> TextDoc <- Corpus(VectorSource(text))
+> #### clean text ####
+> #remove special characters
+> toSpace <- content_transformer(function(x, pattern) gsub(pattern, " ", x)) # Funkcja zamiany znaku
+> TextDoc <- tm_map(TextDoc, toSpace, "/")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, "/") :
+  transformation drops documents
+> TextDoc <- tm_map(TextDoc, toSpace, "@")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, "@") :
+  transformation drops documents
+> TextDoc <- tm_map(TextDoc, toSpace, "\\|")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, "\\|") :
+  transformation drops documents
+> TextDoc <- tm_map(TextDoc, toSpace, ":")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, ":") :
+  transformation drops documents
+> TextDoc <- tm_map(TextDoc, toSpace, ";")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, ";") :
+  transformation drops documents
+> TextDoc <- tm_map(TextDoc, toSpace, ",")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, ",") :
+  transformation drops documents
+> TextDoc <- tm_map(TextDoc, toSpace, "/")
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, toSpace, "/") :
+  transformation drops documents
+> #remove numbers
+> TextDoc <- tm_map(TextDoc, removeNumbers)
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, removeNumbers) :
+  transformation drops documents
+> #remove stop characters
+> TextDoc <- tm_map(TextDoc, removeWords, stopwords("english"))
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, removeWords, stopwords("english")) :
+  transformation drops documents
+> #remove proprietary characters
+> TextDoc <- tm_map(TextDoc, removeWords, c("[", "]"))
+Error in gsub(sprintf("(*UCP)\\b(%s)\\b", paste(sort(words, decreasing = TRUE),  : 
+  invalid regular expression '(*UCP)\b(]|[)\b'
+In addition: Warning message:
+In gsub(sprintf("(*UCP)\\b(%s)\\b", paste(sort(words, decreasing = TRUE),  :
+  PCRE pattern compilation error
+	'missing terminating ] for character class'
+	at ''
+> #remove punctuation
+> TextDoc <- tm_map(TextDoc, removePunctuation)
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, removePunctuation) :
+  transformation drops documents
+> #remove whitespaces
+> TextDoc <- tm_map(TextDoc, stripWhitespace)
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, stripWhitespace) :
+  transformation drops documents
+> #change to basic form
+> TextDoc <- tm_map(TextDoc, stemDocument)
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, stemDocument) :
+  transformation drops documents
+> #to lower
+> TextDoc <- tm_map(TextDoc, content_transformer(tolower))
+Warning message:
+In tm_map.SimpleCorpus(TextDoc, content_transformer(tolower)) :
+  transformation drops documents
+> #### build text matrix ####
+> #build matrix
+> TextDoc_dtm <- TermDocumentMatrix(TextDoc)
+> dtm_m <- as.matrix(TextDoc_dtm)
+> #sort descending based on how often word appears
+> dtm_v <- sort(rowSums(dtm_m), decreasing = TRUE)
+> dtm_d <- data.frame(word = names(dtm_v), freq = dtm_v)
+> #show 5 most often appearing
+> head(dtm_d, 5)
+               word freq
+learn         learn  228
+machin       machin  129
+data           data  105
+algorithm algorithm   73
+use             use   63
+> #### plot of most frequent words ####
+> barplot(
++   dtm_d[1:20, ]$freq,
++   las = 2,
++   names.arg = dtm_d[1:20, ]$word,
++   col = "lightgreen",
++   main = "Top 20 most frequent words",
++   ylab = "Word frequency"
++ )
+> ##### generate word cloud #####
+> set.seed(1234)
+> wordcloud(
++   words = dtm_d$word,
++   freq = dtm_d$freq,
++   scale = c(5, 0.5),
++   min.freq = 1,
++   max.words = 100,
++   random.order = FALSE,
++   rot.per = 0.40,
++   colors = brewer.pal(8, "Dark2")
++ )
+> ##### Kojarzenia slow #####
+> #find association for these words
+> findAssocs(
++   TextDoc_dtm, 
++   terms = c("learn", "machine", "algorithm", "train"),
++   corlimit = 0.5
++ )
+$learn
+ machin    data predict     use 
+   0.78    0.54    0.52    0.51 
+
+$machine
+numeric(0)
+
+$algorithm
+numeric(0)
+
+$train
+ data model 
+ 0.56  0.51 
+
+> #find asoociation for words that appear at least 20 times
+> findAssocs(
++   TextDoc_dtm, 
++   terms = findFreqTerms(TextDoc_dtm, lowfreq = 20),
++   corlimit = 0.5
++ )
+$learn
+numeric(0)
+
+$machin
+numeric(0)
+
+$algorithm
+numeric(0)
+
+$artifici
+   neuron   connect     cross      loos   proceed      sent  strength       sum threshold  transmit 
+     0.93      0.90      0.88      0.88      0.88      0.88      0.88      0.88      0.88      0.88 
+   travel   travers    weight     layer    signal       ann     anoth    aggreg       edg     brain 
+     0.88      0.88      0.88      0.87      0.86      0.82      0.81      0.78      0.78      0.76 
+   biolog      node      last   possibl   decreas      each   multipl    adjust    synaps     typic 
+     0.73      0.63      0.62      0.62      0.62      0.62      0.55      0.55      0.55      0.52 
+     real implement      kind transform 
+     0.52      0.50      0.50      0.50 
+
+$can
+  real target 
+   0.5    0.5 
+
+$comput
+numeric(0)
+
+$data
+unsupervis 
+      0.53 
+
+$model
+numeric(0)
+
+$perform
+replac 
+  0.52 
+
+$predict
+        team         make          aid          art       artist          att        award    behaviour 
+        0.61         0.56         0.55         0.55         0.55         0.55         0.55         0.55 
+        chao    cinematch      cofound     collabor     competit        covid        crisi         cure 
+        0.55         0.55         0.55         0.55         0.55         0.55         0.55         0.55 
+       decad       doctor      ensembl      everyth         fine        grand        green         held 
+        0.55         0.55         0.55         0.55         0.55         0.55         0.55         0.55 
+       joint       khosla labsresearch         lost         made  mediaservic  microsystem      million 
+        0.55         0.55         0.55         0.55         0.55         0.55         0.55         0.55 
+        movi      netflix         next      optimis        paint      pragmat       prefer        prize 
+        0.55         0.55         0.55         0.55         0.55         0.55         0.55         0.55 
+     publish       realiz    rebellion       recent        short    smartphon     springer       street 
+        0.55         0.55         0.55         0.55         0.55         0.55         0.55         0.55 
+   technolog      thermal     unrecogn       viewer        vinod         wall          win        wrote 
+        0.55         0.55         0.55         0.55         0.55         0.55         0.55         0.55 
+        user 
+        0.51 
+
+$program
+  inductiv      logic background      encod     entail   hypothes        ilp  rulelearn    uniform 
+      0.82       0.79       0.76       0.76       0.76       0.76       0.76       0.76       0.76 
+      fact      deriv 
+      0.62       0.53 
+
+$task
+    step     hand   rather    carri programm  specifi     tell     turn   manual     need 
+    0.65     0.64     0.61     0.60     0.60     0.60     0.60     0.60     0.53     0.52 
+
+$train
+numeric(0)
+
+$use
+numeric(0)
+
+$also
+allow 
+ 0.51 
+
+$field
+statist   studi 
+   0.62    0.51 
+
+$method
+   respect      basic  communiti     confus     easili    evaluat outperform    overlap   reproduc 
+      0.68       0.68       0.68       0.68       0.68       0.68       0.68       0.68       0.68 
+   unavail   uninform  discoveri        kdd        key   knowledg      focus       mine     employ 
+      0.68       0.68       0.62       0.60       0.58       0.58       0.56       0.56       0.55 
+     evalu   properti    unknown   previous      separ      known 
+      0.55       0.55       0.55       0.53       0.52       0.50 
+
+$network
+      acycl      belief      condit         dag     diagram      diseas   efficient     protein     symptom 
+       0.74        0.74        0.74        0.74        0.74        0.74        0.74        0.74        0.74 
+uncertainti    bayesian     graphic      direct probabilist    independ     sequenc     presenc 
+       0.74        0.73        0.71        0.66        0.63        0.60        0.55        0.52 
+
+$neural
+     electr      emphas        emul      materi   memristor        more       oppos     relianc      resist 
+       0.81        0.81        0.81        0.81        0.81        0.81        0.81        0.81        0.81 
+softwarebas      physic      adjust      synaps  neuromorph 
+       0.81        0.80        0.72        0.72        0.66 
+
+$the
+advic   caa  emot 
+ 0.54  0.54  0.50 
+
+$exampl
+function 
+    0.54 
+
+$system
+constitut    racist 
+     0.53      0.53 
+
+$repres
+  decis  target conclus discret    tree   class  branch    leav describ    call 
+   0.64    0.64    0.63    0.63    0.63    0.56    0.56    0.56    0.53    0.51 
+
+$set
+   instanc       test   techniqu     abnorm  construct      inher likelihood       look     normal 
+      0.67       0.66       0.61       0.54       0.54       0.54       0.54       0.54       0.54 
+   remaind       seem   unbalanc 
+      0.54       0.54       0.54 
+
+$input
+     output       desir        each      vector       allow supervisori     through 
+       0.70        0.67        0.62        0.56        0.51        0.50        0.50 
+
+$featur
+   factor autoencod  multilay       aim 
+     0.68      0.60      0.60      0.51 
+
+> ##### sentiment analysis #####
+> syuzhet_vector <- get_sentiment(text, method = "syuzhet")
+> bing_vector <- get_sentiment(text, method = "bing")
+> nrc_vector <- get_sentiment(text, method = "nrc")
+> #compare analysis
+> rbind(
++   sign(head(syuzhet_vector)),
++   sign(head(bing_vector)),
++   sign(head(nrc_vector))
++ )
+     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    1    0    0    0    1    0
+[2,]    0    0    0    0    1    0
+[3,]    1    0    0    0    1    0
+> ##### emotion classification #####
+> d <- get_nrc_sentiment(as.vector(dtm_d$word))
+Warning message:
+`spread_()` was deprecated in tidyr 1.2.0.
+Please use `spread()` instead.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated. 
+> head(d,10)
+   anger anticipation disgust fear joy sadness surprise trust negative positive
+1      0            0       0    0   0       0        0     0        0        1
+2      0            0       0    0   0       0        0     0        0        0
+3      0            0       0    0   0       0        0     0        0        0
+4      0            0       0    0   0       0        0     0        0        0
+5      0            0       0    0   0       0        0     0        0        0
+6      0            0       0    0   0       0        0     0        0        1
+7      0            0       0    0   0       0        0     0        0        0
+8      0            0       0    0   0       0        0     0        0        0
+9      0            0       0    0   0       0        0     0        0        0
+10     0            0       0    0   0       0        0     0        0        0
+> #transpose
+> td <- data.frame(t(d))
+> #sum frequency of emotions for first 56 words
+> td_new <- data.frame(rowSums(td[1:56]))
+> #clear result
+> names(td_new)[1] <- "count"
+> td_new <- cbind("sentiment" = rownames(td_new), td_new)
+> rownames(td_new) <- NULL
+> td_new2 <- td_new[1:8,]
+> #plot - words tied to emotions
+> quickplot(
++   sentiment,
++   data = td_new2,
++   weight = count,
++   geom = "bar",
++   fill = sentiment,
++   ylab = "count"
++ ) + ggtitle("Survey sentiments")
+> #plot - percent of each emotion
+> barplot(
++   sort(colSums(prop.table(d[, 1:8]))),
++   horiz = TRUE,
++   cex.names = 0.7,
++   las = 1,
++   main = "Emotions in Text",
++   xlab = "Percentage"
++ )
+>

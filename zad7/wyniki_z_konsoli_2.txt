@@ -1,0 +1,1602 @@
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd("G:/ATH/Apu/LAB/LAB7/Workspace")
+> 
+> #install.packages("tidytext")
+> #install.packages("igraph")
+> #install.packages("ggraph")
+> library("tidytext")
+> library("igraph")
+
+Dołączanie pakietu: ‘igraph’
+
+Następujące obiekty zostały zakryte z ‘package:stats’:
+
+    decompose, spectrum
+
+Następujący obiekt został zakryty z ‘package:base’:
+
+    union
+
+> library("ggraph")
+Ładowanie wymaganego pakietu: ggplot2
+> library(dplyr)
+
+Dołączanie pakietu: ‘dplyr’
+
+Następujące obiekty zostały zakryte z ‘package:igraph’:
+
+    as_data_frame, groups, union
+
+Następujące obiekty zostały zakryte z ‘package:stats’:
+
+    filter, lag
+
+Następujące obiekty zostały zakryte z ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(tidyr)
+
+Dołączanie pakietu: ‘tidyr’
+
+Następujący obiekt został zakryty z ‘package:igraph’:
+
+    crossing
+
+> 
+> ##### read file #####
+> text <- readChar("ml.txt", file.info("ml.txt")$size)
+> text_df <- data.frame(
++   line = 1, 
++   text = text)
+> text_df
+  line
+1    1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          text
+1 Machine learning\r\nContributors to Wikimedia projects\r\n71 â€” 91 minut\r\n\r\nMachine learning (ML) is the study of computer algorithms that can improve automatically through experience and by the use of data.[1] It is seen as a part of artificial intelligence. Machine learning algorithms build a model based on sample data, known as training data, in order to make predictions or decisions without being explicitly programmed to do so.[2] Machine learning algorithms are used in a wide variety of applications, such as in medicine, email filtering, speech recognition, and computer vision, where it is difficult or unfeasible to develop conventional algorithms to perform the needed tasks.[3]\r\n\r\nA subset of machine learning is closely related to computational statistics, which focuses on making predictions using computers; but not all machine learning is statistical learning. The study of mathematical optimization delivers methods, theory and application domains to the field of machine learning. Data mining is a related field of study, focusing on exploratory data analysis through unsupervised learning.[5][6] Some implementations of machine learning use data and neural networks in a way that mimics the working of a biological brain.[7][8] In its application across business problems, machine learning is also referred to as predictive analytics.\r\nOverview[edit]\r\n\r\nLearning algorithms work on the basis that strategies, algorithms, and inferences that worked well in the past are likely to continue working well in the future. These inferences can be obvious, such as "since the sun rose every morning for the last 10,000 days, it will probably rise tomorrow morning as well". They can be nuanced, such as "X% of families have geographically separate species with color variants, so there is a Y% chance that undiscovered black swans exist".[9]\r\n\r\nMachine learning programs can perform tasks without being explicitly programmed to do so. It involves computers learning from data provided so that they carry out certain tasks. For simple tasks assigned to computers, it is possible to program algorithms telling the machine how to execute all steps required to solve the problem at hand; on the computer's part, no learning is needed. For more advanced tasks, it can be challenging for a human to manually create the needed algorithms. In practice, it can turn out to be more effective to help the machine develop its own algorithm, rather than having human programmers specify every needed step.[10]\r\n\r\nThe discipline of machine learning employs various approaches to teach computers to accomplish tasks where no fully satisfactory algorithm is available. In cases where vast numbers of potential answers exist, one approach is to label some of the correct answers as valid. This can then be used as training data for the computer to improve the algorithm(s) it uses to determine correct answers. For example, to train a system for the task of digital character recognition, the MNIST dataset of handwritten digits has often been used.[10]\r\nHistory and relationships to other fields[edit]\r\n\r\nThe term machine learning was coined in 1959 by Arthur Samuel, an American IBMer and pioneer in the field of computer gaming and artificial intelligence.[11][12] Also the synonym self-teaching computers was used in this time period.[13][14] A representative book of the machine learning research during the 1960s was the Nilsson's book on Learning Machines, dealing mostly with machine learning for pattern classification.[15] Interest related to pattern recognition continued into the 1970s, as described by Duda and Hart in 1973.[16] In 1981 a report was given on using teaching strategies so that a neural network learns to recognize 40 characters (26 letters, 10 digits, and 4 special symbols) from a computer terminal.[17]\r\n\r\nTom M. Mitchell provided a widely quoted, more formal definition of the algorithms studied in the machine learning field: "A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E."[18] This definition of the tasks in which machine learning is concerned offers a fundamentally operational definition rather than defining the field in cognitive terms. This follows Alan Turing's proposal in his paper "Computing Machinery and Intelligence", in which the question "Can machines think?" is replaced with the question "Can machines do what we (as thinking entities) can do?".[19]\r\n\r\nModern day machine learning has two objectives, one is to classify data based on models which have been developed, the other purpose is to make predictions for future outcomes based on these models. A hypothetical algorithm specific to classifying data may use computer vision of moles coupled with supervised learning in order to train it to classify the cancerous moles. A machine learning algorithm for stock trading may inform the trader of future potential predictions.[20]\r\nArtificial intelligence[edit]\r\n\r\nMachine learning as subfield of AI[21]\r\n\r\nPart of machine learning as subfield of AI or part of AI as subfield of machine learning[22]\r\n\r\nAs a scientific endeavor, machine learning grew out of the quest for artificial intelligence. In the early days of AI as an academic discipline, some researchers were interested in having machines learn from data. They attempted to approach the problem with various symbolic methods, as well as what was then termed "neural networks"; these were mostly perceptrons and other models that were later found to be reinventions of the generalized linear models of statistics.[23] Probabilistic reasoning was also employed, especially in automated medical diagnosis.[24]:â€Š488â€Š\r\n\r\nHowever, an increasing emphasis on the logical, knowledge-based approach caused a rift between AI and machine learning. Probabilistic systems were plagued by theoretical and practical problems of data acquisition and representation.[24]:â€Š488â€Š By 1980, expert systems had come to dominate AI, and statistics was out of favor.[25] Work on symbolic/knowledge-based learning did continue within AI, leading to inductive logic programming, but the more statistical line of research was now outside the field of AI proper, in pattern recognition and information retrieval.[24]:â€Š708â€“710,â€Š755â€Š Neural networks research had been abandoned by AI and computer science around the same time. This line, too, was continued outside the AI/CS field, as "connectionism", by researchers from other disciplines including Hopfield, Rumelhart and Hinton. Their main success came in the mid-1980s with the reinvention of backpropagation.[24]:â€Š25â€Š\r\n\r\nMachine learning (ML), reorganized as a separate field, started to flourish in the 1990s. The field changed its goal from achieving artificial intelligence to tackling solvable problems of a practical nature. It shifted focus away from the symbolic approaches it had inherited from AI, and toward methods and models borrowed from statistics and probability theory.[25]\r\n\r\nThe difference between ML and AI is frequently misunderstood. ML learns and predicts based on passive observations, whereas AI implies an agent interacting with the environment to learn and take actions that maximize its chance of successfully achieving its goals.[26]\r\n\r\nAs of 2020, many sources continue to assert that ML remains a subfield of AI.[27][28][25] Others have the view that not all ML is part of AI, but only an 'intelligent subset' of ML should be considered AI.[4][29][30]\r\nData mining[edit]\r\n\r\nMachine learning and data mining often employ the same methods and overlap significantly, but while machine learning focuses on prediction, based on known properties learned from the training data, data mining focuses on the discovery of (previously) unknown properties in the data (this is the analysis step of knowledge discovery in databases). Data mining uses many machine learning methods, but with different goals; on the other hand, machine learning also employs data mining methods as "unsupervised learning" or as a preprocessing step to improve learner accuracy. Much of the confusion between these two research communities (which do often have separate conferences and separate journals, ECML PKDD being a major exception) comes from the basic assumptions they work with: in machine learning, performance is usually evaluated with respect to the ability to reproduce known knowledge, while in knowledge discovery and data mining (KDD) the key task is the discovery of previously unknown knowledge. Evaluated with respect to known knowledge, an uninformed (unsupervised) method will easily be outperformed by other supervised methods, while in a typical KDD task, supervised methods cannot be used due to the unavailability of training data.\r\nOptimization[edit]\r\n\r\nMachine learning also has intimate ties to optimization: many learning problems are formulated as minimization of some loss function on a training set of examples. Loss functions express the discrepancy between the predictions of the model being trained and the actual problem instances (for example, in classification, one wants to assign a label to instances, and models are trained to correctly predict the pre-assigned labels of a set of examples).[31]\r\nGeneralization[edit]\r\n\r\nThe difference between optimization and machine learning arises from the goal of generalization: while optimization algorithms can minimize the loss on a training set, machine learning is concerned with minimizing the loss on unseen samples. Characterizing the generalization of various learning algorithms is an active topic of current research, especially for deep learning algorithms.\r\nStatistics[edit]\r\n\r\nMachine learning and statistics are closely related fields in terms of methods, but distinct in their principal goal: statistics draws population inferences from a sample, while machine learning finds generalizable predictive patterns.[32] According to Michael I. Jordan, the ideas of machine learning, from methodological principles to theoretical tools, have had a long pre-history in statistics.[33] He also suggested the term data science as a placeholder to call the overall field.[33]\r\n\r\nLeo Breiman distinguished two statistical modeling paradigms: data model and algorithmic model,[27] wherein "algorithmic model" means more or less the machine learning algorithms like Random forest.\r\n\r\nSome statisticians have adopted methods from machine learning, leading to a combined field that they call statistical learning.[28]\r\nTheory[edit]\r\n\r\nA core objective of a learner is to generalize from its experience.[4][29] Generalization in this context is the ability of a learning machine to perform accurately on new, unseen examples/tasks after having experienced a learning data set. The training examples come from some generally unknown probability distribution (considered representative of the space of occurrences) and the learner has to build a general model about this space that enables it to produce sufficiently accurate predictions in new cases.\r\n\r\nThe computational analysis of machine learning algorithms and their performance is a branch of theoretical computer science known as computational learning theory. Because training sets are finite and the future is uncertain, learning theory usually does not yield guarantees of the performance of algorithms. Instead, probabilistic bounds on the performance are quite common. The biasâ€“variance decomposition is one way to quantify generalization error.\r\n\r\nFor the best performance in the context of generalization, the complexity of the hypothesis should match the complexity of the function underlying the data. If the hypothesis is less complex than the function, then the model has under fitted the data. If the complexity of the model is increased in response, then the training error decreases. But if the hypothesis is too complex, then the model is subject to overfitting and generalization will be poorer.[30]\r\n\r\nIn addition to performance bounds, learning theorists study the time complexity and feasibility of learning. In computational learning theory, a computation is considered feasible if it can be done in polynomial time. There are two kinds of time complexity results: Positive results show that a certain class of functions can be learned in polynomial time. Negative results show that certain classes cannot be learned in polynomial time.\r\nApproaches[edit]\r\n\r\nMachine learning approaches are traditionally divided into three broad categories, depending on the nature of the "signal" or "feedback" available to the learning system:\r\n\r\n    Supervised learning: The computer is presented with example inputs and their desired outputs, given by a "teacher", and the goal is to learn a general rule that maps inputs to outputs.\r\n    Unsupervised learning: No labels are given to the learning algorithm, leaving it on its own to find structure in its input. Unsupervised learning can be a goal in itself (discovering hidden patterns in data) or a means towards an end (feature learning).\r\n    Reinforcement learning: A computer program interacts with a dynamic environment in which it must perform a certain goal (such as driving a vehicle or playing a game against an opponent). As it navigates its problem space, the program is provided feedback that's analogous to rewards, which it tries to maximize.[4]\r\n\r\nSupervised learning[edit]\r\n\r\nA support-vector machine is a supervised learning model that divides the data into regions separated by a linear boundary. Here, the linear boundary divides the black circles from the white.\r\n\r\nSupervised learning algorithms build a mathematical model of a set of data that contains both the inputs and the desired outputs.[34] The data is known as training data, and consists of a set of training examples. Each training example has one or more inputs and the desired output, also known as a supervisory signal. In the mathematical model, each training example is represented by an array or vector, sometimes called a feature vector, and the training data is represented by a matrix. Through iterative optimization of an objective function, supervised learning algorithms learn a function that can be used to predict the output associated with new inputs.[35] An optimal function will allow the algorithm to correctly determine the output for inputs that were not a part of the training data. An algorithm that improves the accuracy of its outputs or predictions over time is said to have learned to perform that task.[18]\r\n\r\nTypes of supervised learning algorithms include active learning, classification and regression.[26] Classification algorithms are used when the outputs are restricted to a limited set of values, and regression algorithms are used when the outputs may have any numerical value within a range. As an example, for a classification algorithm that filters emails, the input would be an incoming email, and the output would be the name of the folder in which to file the email.\r\n\r\nSimilarity learning is an area of supervised machine learning closely related to regression and classification, but the goal is to learn from examples using a similarity function that measures how similar or related two objects are. It has applications in ranking, recommendation systems, visual identity tracking, face verification, and speaker verification.\r\nUnsupervised learning[edit]\r\n\r\nUnsupervised learning algorithms take a set of data that contains only inputs, and find structure in the data, like grouping or clustering of data points. The algorithms, therefore, learn from test data that has not been labeled, classified or categorized. Instead of responding to feedback, unsupervised learning algorithms identify commonalities in the data and react based on the presence or absence of such commonalities in each new piece of data. A central application of unsupervised learning is in the field of density estimation in statistics, such as finding the probability density function.[36] Though unsupervised learning encompasses other domains involving summarizing and explaining data features.\r\n\r\nCluster analysis is the assignment of a set of observations into subsets (called clusters) so that observations within the same cluster are similar according to one or more predesignated criteria, while observations drawn from different clusters are dissimilar. Different clustering techniques make different assumptions on the structure of the data, often defined by some similarity metric and evaluated, for example, by internal compactness, or the similarity between members of the same cluster, and separation, the difference between clusters. Other methods are based on estimated density and graph connectivity.\r\nSemi-supervised learning[edit]\r\n\r\nSemi-supervised learning falls between unsupervised learning (without any labeled training data) and supervised learning (with completely labeled training data). Some of the training examples are missing training labels, yet many machine-learning researchers have found that unlabeled data, when used in conjunction with a small amount of labeled data, can produce a considerable improvement in learning accuracy.\r\n\r\nIn weakly supervised learning, the training labels are noisy, limited, or imprecise; however, these labels are often cheaper to obtain, resulting in larger effective training sets.[37]\r\nReinforcement learning[edit]\r\n\r\nReinforcement learning is an area of machine learning concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward. Due to its generality, the field is studied in many other disciplines, such as game theory, control theory, operations research, information theory, simulation-based optimization, multi-agent systems, swarm intelligence, statistics and genetic algorithms. In machine learning, the environment is typically represented as a Markov decision process (MDP). Many reinforcement learning algorithms use dynamic programming techniques.[38] Reinforcement learning algorithms do not assume knowledge of an exact mathematical model of the MDP, and are used when exact models are infeasible. Reinforcement learning algorithms are used in autonomous vehicles or in learning to play a game against a human opponent.\r\nDimensionality reduction[edit]\r\n\r\nDimensionality reduction is a process of reducing the number of random variables under consideration by obtaining a set of principal variables.[39] In other words, it is a process of reducing the dimension of the feature set, also called "number of features". Most of the dimensionality reduction techniques can be considered as either feature elimination or extraction. One of the popular methods of dimensionality reduction is principal component analysis (PCA). PCA involves changing higher-dimensional data (e.g., 3D) to a smaller space (e.g., 2D). This results in a smaller dimension of data (2D instead of 3D), while keeping all original variables in the model without changing the data.[40] The manifold hypothesis proposes that high-dimensional data sets lie along low-dimensional manifolds, and many dimensionality reduction techniques make this assumption, leading to the area of manifold learning and manifold regularization.\r\nOther types[edit]\r\n\r\nOther approaches have been developed which don't fit neatly into this three-fold categorisation, and sometimes more than one is used by the same machine learning system. For example topic modeling, meta learning.[41]\r\n\r\nAs of 2020, deep learning has become the dominant approach for much ongoing work in the field of machine learning.[10]\r\nSelf learning[edit]\r\n\r\nSelf-learning as a machine learning paradigm was introduced in 1982 along with a neural network capable of self-learning named crossbar adaptive array (CAA).[42] It is a learning with no external rewards and no external teacher advice. The CAA self-learning algorithm computes, in a crossbar fashion, both decisions about actions and emotions (feelings) about consequence situations. The system is driven by the interaction between cognition and emotion.[43] The self-learning algorithm updates a memory matrix W =||w(a,s)|| such that in each iteration executes the following machine learning routine:\r\n\r\n In situation s perform an action a;\r\n Receive consequence situation sâ€™;\r\n Compute emotion of being in consequence situation v(sâ€™);\r\n Update crossbar memory  wâ€™(a,s) = w(a,s) + v(sâ€™).\r\n\r\nIt is a system with only one input, situation s, and only one output, action (or behavior) a. There is neither a separate reinforcement input nor an advice input from the environment. The backpropagated value (secondary reinforcement) is the emotion toward the consequence situation. The CAA exists in two environments, one is the behavioral environment where it behaves, and the other is the genetic environment, wherefrom it initially and only once receives initial emotions about situations to be encountered in the behavioral environment. After receiving the genome (species) vector from the genetic environment, the CAA learns a goal-seeking behavior, in an environment that contains both desirable and undesirable situations.[44]\r\nFeature learning[edit]\r\n\r\nSeveral learning algorithms aim at discovering better representations of the inputs provided during training.[45] Classic examples include principal components analysis and cluster analysis. Feature learning algorithms, also called representation learning algorithms, often attempt to preserve the information in their input but also transform it in a way that makes it useful, often as a pre-processing step before performing classification or predictions. This technique allows reconstruction of the inputs coming from the unknown data-generating distribution, while not being necessarily faithful to configurations that are implausible under that distribution. This replaces manual feature engineering, and allows a machine to both learn the features and use them to perform a specific task.\r\n\r\nFeature learning can be either supervised or unsupervised. In supervised feature learning, features are learned using labeled input data. Examples include artificial neural networks, multilayer perceptrons, and supervised dictionary learning. In unsupervised feature learning, features are learned with unlabeled input data. Examples include dictionary learning, independent component analysis, autoencoders, matrix factorization[46] and various forms of clustering.[47][48][49]\r\n\r\nManifold learning algorithms attempt to do so under the constraint that the learned representation is low-dimensional. Sparse coding algorithms attempt to do so under the constraint that the learned representation is sparse, meaning that the mathematical model has many zeros. Multilinear subspace learning algorithms aim to learn low-dimensional representations directly from tensor representations for multidimensional data, without reshaping them into higher-dimensional vectors.[50] Deep learning algorithms discover multiple levels of representation, or a hierarchy of features, with higher-level, more abstract features defined in terms of (or generating) lower-level features. It has been argued that an intelligent machine is one that learns a representation that disentangles the underlying factors of variation that explain the observed data.[51]\r\n\r\nFeature learning is motivated by the fact that machine learning tasks such as classification often require input that is mathematically and computationally convenient to process. However, real-world data such as images, video, and sensory data has not yielded to attempts to algorithmically define specific features. An alternative is to discover such features or representations through examination, without relying on explicit algorithms.\r\nSparse dictionary learning[edit]\r\n\r\nSparse dictionary learning is a feature learning method where a training example is represented as a linear combination of basis functions, and is assumed to be a sparse matrix. The method is strongly NP-hard and difficult to solve approximately.[52] A popular heuristic method for sparse dictionary learning is the K-SVD algorithm. Sparse dictionary learning has been applied in several contexts. In classification, the problem is to determine the class to which a previously unseen training example belongs. For a dictionary where each class has already been built, a new training example is associated with the class that is best sparsely represented by the corresponding dictionary. Sparse dictionary learning has also been applied in image de-noising. The key idea is that a clean image patch can be sparsely represented by an image dictionary, but the noise cannot.[53]\r\nAnomaly detection[edit]\r\n\r\nIn data mining, anomaly detection, also known as outlier detection, is the identification of rare items, events or observations which raise suspicions by differing significantly from the majority of the data.[54] Typically, the anomalous items represent an issue such as bank fraud, a structural defect, medical problems or errors in a text. Anomalies are referred to as outliers, novelties, noise, deviations and exceptions.[55]\r\n\r\nIn particular, in the context of abuse and network intrusion detection, the interesting objects are often not rare objects, but unexpected bursts of inactivity. This pattern does not adhere to the common statistical definition of an outlier as a rare object, and many outlier detection methods (in particular, unsupervised algorithms) will fail on such data unless it has been aggregated appropriately. Instead, a cluster analysis algorithm may be able to detect the micro-clusters formed by these patterns.[56]\r\n\r\nThree broad categories of anomaly detection techniques exist.[57] Unsupervised anomaly detection techniques detect anomalies in an unlabeled test data set under the assumption that the majority of the instances in the data set are normal, by looking for instances that seem to fit least to the remainder of the data set. Supervised anomaly detection techniques require a data set that has been labeled as "normal" and "abnormal" and involves training a classifier (the key difference to many other statistical classification problems is the inherently unbalanced nature of outlier detection). Semi-supervised anomaly detection techniques construct a model representing normal behavior from a given normal training data set and then test the likelihood of a test instance to be generated by the model.\r\nRobot learning[edit]\r\n\r\nRobot learning is inspired by a multitude of machine learning methods, starting from supervised learning, reinforcement learning,[58][59] and finally meta-learning (e.g. MAML).\r\nAssociation rules[edit]\r\n\r\nAssociation rule learning is a rule-based machine learning method for discovering relationships between variables in large databases. It is intended to identify strong rules discovered in databases using some measure of "interestingness".[60]\r\n\r\nRule-based machine learning is a general term for any machine learning method that identifies, learns, or evolves "rules" to store, manipulate or apply knowledge. The defining characteristic of a rule-based machine learning algorithm is the identification and utilization of a set of relational rules that collectively represent the knowledge captured by the system. This is in contrast to other machine learning algorithms that commonly identify a singular model that can be universally applied to any instance in order to make a prediction.[61] Rule-based machine learning approaches include learning classifier systems, association rule learning, and artificial immune systems.\r\n\r\nBased on the concept of strong rules, Rakesh Agrawal, Tomasz ImieliĹ„ski and Arun Swami introduced association rules for discovering regularities between products in large-scale transaction data recorded by point-of-sale (POS) systems in supermarkets.[62] For example, the rule \\{{\\mathrm {onions,potatoes}}\\}\\Rightarrow \\{{\\mathrm {burger}}\\} found in the sales data of a supermarket would indicate that if a customer buys onions and potatoes together, they are likely to also buy hamburger meat. Such information can be used as the basis for decisions about marketing activities such as promotional pricing or product placements. In addition to market basket analysis, association rules are employed today in application areas including Web usage mining, intrusion detection, continuous production, and bioinformatics. In contrast with sequence mining, association rule learning typically does not consider the order of items either within a transaction or across transactions.\r\n\r\nLearning classifier systems (LCS) are a family of rule-based machine learning algorithms that combine a discovery component, typically a genetic algorithm, with a learning component, performing either supervised learning, reinforcement learning, or unsupervised learning. They seek to identify a set of context-dependent rules that collectively store and apply knowledge in a piecewise manner in order to make predictions.[63]\r\n\r\nInductive logic programming (ILP) is an approach to rule-learning using logic programming as a uniform representation for input examples, background knowledge, and hypotheses. Given an encoding of the known background knowledge and a set of examples represented as a logical database of facts, an ILP system will derive a hypothesized logic program that entails all positive and no negative examples. Inductive programming is a related field that considers any kind of programming language for representing hypotheses (and not only logic programming), such as functional programs.\r\n\r\nInductive logic programming is particularly useful in bioinformatics and natural language processing. Gordon Plotkin and Ehud Shapiro laid the initial theoretical foundation for inductive machine learning in a logical setting.[64][65][66] Shapiro built their first implementation (Model Inference System) in 1981: a Prolog program that inductively inferred logic programs from positive and negative examples.[67] The term inductive here refers to philosophical induction, suggesting a theory to explain observed facts, rather than mathematical induction, proving a property for all members of a well-ordered set.\r\nModels[edit]\r\n\r\nPerforming machine learning involves creating a model, which is trained on some training data and then can process additional data to make predictions. Various types of models have been used and researched for machine learning systems.\r\nArtificial neural networks[edit]\r\n\r\nAn artificial neural network is an interconnected group of nodes, akin to the vast network of neurons in a brain. Here, each circular node represents an artificial neuron and an arrow represents a connection from the output of one artificial neuron to the input of another.\r\n\r\nArtificial neural networks (ANNs), or connectionist systems, are computing systems vaguely inspired by the biological neural networks that constitute animal brains. Such systems "learn" to perform tasks by considering examples, generally without being programmed with any task-specific rules.\r\n\r\nAn ANN is a model based on a collection of connected units or nodes called "artificial neurons", which loosely model the neurons in a biological brain. Each connection, like the synapses in a biological brain, can transmit information, a "signal", from one artificial neuron to another. An artificial neuron that receives a signal can process it and then signal additional artificial neurons connected to it. In common ANN implementations, the signal at a connection between artificial neurons is a real number, and the output of each artificial neuron is computed by some non-linear function of the sum of its inputs. The connections between artificial neurons are called "edges". Artificial neurons and edges typically have a weight that adjusts as learning proceeds. The weight increases or decreases the strength of the signal at a connection. Artificial neurons may have a threshold such that the signal is only sent if the aggregate signal crosses that threshold. Typically, artificial neurons are aggregated into layers. Different layers may perform different kinds of transformations on their inputs. Signals travel from the first layer (the input layer) to the last layer (the output layer), possibly after traversing the layers multiple times.\r\n\r\nThe original goal of the ANN approach was to solve problems in the same way that a human brain would. However, over time, attention moved to performing specific tasks, leading to deviations from biology. Artificial neural networks have been used on a variety of tasks, including computer vision, speech recognition, machine translation, social network filtering, playing board and video games and medical diagnosis.\r\n\r\nDeep learning consists of multiple hidden layers in an artificial neural network. This approach tries to model the way the human brain processes light and sound into vision and hearing. Some successful applications of deep learning are computer vision and speech recognition.[68]\r\nDecision trees[edit]\r\n\r\nDecision tree learning uses a decision tree as a predictive model to go from observations about an item (represented in the branches) to conclusions about the item's target value (represented in the leaves). It is one of the predictive modeling approaches used in statistics, data mining, and machine learning. Tree models where the target variable can take a discrete set of values are called classification trees; in these tree structures, leaves represent class labels and branches represent conjunctions of features that lead to those class labels. Decision trees where the target variable can take continuous values (typically real numbers) are called regression trees. In decision analysis, a decision tree can be used to visually and explicitly represent decisions and decision making. In data mining, a decision tree describes data, but the resulting classification tree can be an input for decision making.\r\nSupport-vector machines[edit]\r\n\r\nSupport-vector machines (SVMs), also known as support-vector networks, are a set of related supervised learning methods used for classification and regression. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that predicts whether a new example falls into one category or the other.[69] An SVM training algorithm is a non-probabilistic, binary, linear classifier, although methods such as Platt scaling exist to use SVM in a probabilistic classification setting. In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces.\r\n\r\nIllustration of linear regression on a data set.\r\nRegression analysis[edit]\r\n\r\nRegression analysis encompasses a large variety of statistical methods to estimate the relationship between input variables and their associated features. Its most common form is linear regression, where a single line is drawn to best fit the given data according to a mathematical criterion such as ordinary least squares. The latter is often extended by regularization (mathematics) methods to mitigate overfitting and bias, as in ridge regression. When dealing with non-linear problems, go-to models include polynomial regression (for example, used for trendline fitting in Microsoft Excel[70]), logistic regression (often used in statistical classification) or even kernel regression, which introduces non-linearity by taking advantage of the kernel trick to implicitly map input variables to higher-dimensional space.\r\nBayesian networks[edit]\r\n\r\nA simple Bayesian network. Rain influences whether the sprinkler is activated, and both rain and the sprinkler influence whether the grass is wet.\r\n\r\nA Bayesian network, belief network, or directed acyclic graphical model is a probabilistic graphical model that represents a set of random variables and their conditional independence with a directed acyclic graph (DAG). For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used to compute the probabilities of the presence of various diseases. Efficient algorithms exist that perform inference and learning. Bayesian networks that model sequences of variables, like speech signals or protein sequences, are called dynamic Bayesian networks. Generalizations of Bayesian networks that can represent and solve decision problems under uncertainty are called influence diagrams.\r\nGenetic algorithms[edit]\r\n\r\nA genetic algorithm (GA) is a search algorithm and heuristic technique that mimics the process of natural selection, using methods such as mutation and crossover to generate new genotypes in the hope of finding good solutions to a given problem. In machine learning, genetic algorithms were used in the 1980s and 1990s.[71][72] Conversely, machine learning techniques have been used to improve the performance of genetic and evolutionary algorithms.[73]\r\nTraining models[edit]\r\n\r\nTypically, machine learning models require a high quantity of reliable data in order for the models to perform accurate predictions. When training a machine learning model, machine learning engineers need to target and collect a large and representative sample of data. Data from the training set can be as varied as a corpus of text, a collection of images, sensor data, and data collected from individual users of a service. Overfitting is something to watch out for when training a machine learning model. Trained models derived from biased or non-evaluated data can result in skewed or undesired predictions. Bias models may result in detrimental outcomes thereby furthering the negative impacts to society or objectives. Algorithmic bias is a potential result from data not fully prepared for training. Machine learning ethics is becoming a field of study and notably be integrated within machine learning engineering teams.\r\nFederated learning[edit]\r\n\r\nFederated learning is an adapted form of distributed artificial intelligence to training machine learning models that decentralizes the training process, allowing for users' privacy to be maintained by not needing to send their data to a centralized server. This also increases efficiency by decentralizing the training process to many devices. For example, Gboard uses federated machine learning to train search query prediction models on users' mobile phones without having to send individual searches back to Google.[74]\r\nApplications[edit]\r\n\r\nThere are many applications for machine learning, including:\r\n\r\n    Agriculture\r\n    Anatomy\r\n    Adaptive website\r\n    Affective computing\r\n    Astronomy\r\n    Banking\r\n    Bioinformatics\r\n    Brainâ€“machine interfaces\r\n    Cheminformatics\r\n    Citizen science\r\n    Climate science\r\n    Computer networks\r\n    Computer vision\r\n    Credit-card fraud detection\r\n    Data quality\r\n    DNA sequence classification\r\n    Economics\r\n    Financial market analysis[75]\r\n    General game playing\r\n    Handwriting recognition\r\n    Information retrieval\r\n    Insurance\r\n    Internet fraud detection\r\n    Knowledge graph embedding\r\n    Linguistics\r\n    Machine learning control\r\n    Machine perception\r\n    Machine translation\r\n    Marketing\r\n    Medical diagnosis\r\n    Natural language processing\r\n    Natural language understanding\r\n    Online advertising\r\n    Optimization\r\n    Recommender systems\r\n    Robot locomotion\r\n    Search engines\r\n    Sentiment analysis\r\n    Sequence mining\r\n    Software engineering\r\n    Speech recognition\r\n    Structural health monitoring\r\n    Syntactic pattern recognition\r\n    Telecommunication\r\n    Theorem proving\r\n    Time-series forecasting\r\n    User behavior analytics\r\n    Behaviorism\r\n\r\nIn 2006, the media-services provider Netflix held the first "Netflix Prize" competition to find a program to better predict user preferences and improve the accuracy of its existing Cinematch movie recommendation algorithm by at least 10%. A joint team made up of researchers from AT&T Labs-Research in collaboration with the teams Big Chaos and Pragmatic Theory built an ensemble model to win the Grand Prize in 2009 for $1 million.[76] Shortly after the prize was awarded, Netflix realized that viewers' ratings were not the best indicators of their viewing patterns ("everything is a recommendation") and they changed their recommendation engine accordingly.[77] In 2010 The Wall Street Journal wrote about the firm Rebellion Research and their use of machine learning to predict the financial crisis.[78] In 2012, co-founder of Sun Microsystems, Vinod Khosla, predicted that 80% of medical doctors' jobs would be lost in the next two decades to automated machine learning medical diagnostic software.[79] In 2014, it was reported that a machine learning algorithm had been applied in the field of art history to study fine art paintings and that it may have revealed previously unrecognized influences among artists.[80] In 2019 Springer Nature published the first research book created using machine learning.[81] In 2020, machine learning technology was used to help make diagnoses and aid researchers in developing a cure for COVID-19.[82] Machine learning is recently applied to predict the green behavior of human-being.[83] Recently, machine learning technology is also applied to optimise smartphone's performance and thermal behaviour based on the user's interaction with the phone.[84][85][86]\r\nLimitations[edit]\r\n\r\nAlthough machine learning has been transformative in some fields, machine-learning programs often fail to deliver expected results.[87][88][89] Reasons for this are numerous: lack of (suitable) data, lack of access to the data, data bias, privacy problems, badly chosen tasks and algorithms, wrong tools and people, lack of resources, and evaluation problems.[90]\r\n\r\nIn 2018, a self-driving car from Uber failed to detect a pedestrian, who was killed after a collision.[91] Attempts to use machine learning in healthcare with the IBM Watson system failed to deliver even after years of time and billions of dollars invested.[92][93]\r\n\r\nMachine learning has been used as a strategy to update the evidence related to systematic review and increased reviewer burden related to the growth of biomedical literature. While it has improved with training sets, it has not yet developed sufficiently to reduce the workload burden without limiting the necessary sensitivity for the findings research themselves.[94]\r\nBias[edit]\r\n\r\nMachine learning approaches in particular can suffer from different data biases. A machine learning system trained specifically on current customers may not be able to predict the needs of new customer groups that are not represented in the training data. When trained on man-made data, machine learning is likely to pick up the constitutional and unconscious biases already present in society.[95] Language models learned from data have been shown to contain human-like biases.[96][97] Machine learning systems used for criminal risk assessment have been found to be biased against black people.[98][99] In 2015, Google photos would often tag black people as gorillas,[100] and in 2018 this still was not well resolved, but Google reportedly was still using the workaround to remove all gorillas from the training data, and thus was not able to recognize real gorillas at all.[101] Similar issues with recognizing non-white people have been found in many other systems.[102] In 2016, Microsoft tested a chatbot that learned from Twitter, and it quickly picked up racist and sexist language.[103] Because of such challenges, the effective use of machine learning may take longer to be adopted in other domains.[104] Concern for fairness in machine learning, that is, reducing bias in machine learning and propelling its use for human good is increasingly expressed by artificial intelligence scientists, including Fei-Fei Li, who reminds engineers that "Thereâ€™s nothing artificial about AI...Itâ€™s inspired by people, itâ€™s created by people, andâ€”most importantlyâ€”it impacts people. It is a powerful tool we are only just beginning to understand, and that is a profound responsibility.â€ť[105]\r\nOverfitting[edit]\r\n\r\nThe blue line could be an example of overfitting a linear function due to random noise.\r\n\r\nSettling on a bad, overly complex theory gerrymandered to fit all the past training data is known as overfitting. Many systems attempt to reduce overfitting by rewarding a theory in accordance with how well it fits the data, but penalizing the theory in accordance with how complex the theory is.[9]\r\nOther limitations[edit]\r\n\r\nLearners can also disappoint by "learning the wrong lesson". A toy example is that an image classifier trained only on pictures of brown horses and black cats might conclude that all brown patches are likely to be horses.[106] A real-world example is that, unlike humans, current image classifiers often don't primarily make judgments from the spatial relationship between components of the picture, and they learn relationships between pixels that humans are oblivious to, but that still correlate with images of certain types of real objects. Modifying these patterns on a legitimate image can result in "adversarial" images that the system misclassifies.[107][108]\r\n\r\nAdversarial vulnerabilities can also result in nonlinear systems, or from non-pattern perturbations. Some systems are so brittle that changing a single adversarial pixel predictably induces misclassification.\r\nModel assessments[edit]\r\n\r\nClassification of machine learning models can be validated by accuracy estimation techniques like the holdout method, which splits the data in a training and test set (conventionally 2/3 training set and 1/3 test set designation) and evaluates the performance of the training model on the test set. In comparison, the K-fold-cross-validation method randomly partitions the data into K subsets and then K experiments are performed each respectively considering 1 subset for evaluation and the remaining K-1 subsets for training the model. In addition to the holdout and cross-validation methods, bootstrap, which samples n instances with replacement from the dataset, can be used to assess model accuracy.[109]\r\n\r\nIn addition to overall accuracy, investigators frequently report sensitivity and specificity meaning True Positive Rate (TPR) and True Negative Rate (TNR) respectively. Similarly, investigators sometimes report the false positive rate (FPR) as well as the false negative rate (FNR). However, these rates are ratios that fail to reveal their numerators and denominators. The total operating characteristic (TOC) is an effective method to express a model's diagnostic ability. TOC shows the numerators and denominators of the previously mentioned rates, thus TOC provides more information than the commonly used receiver operating characteristic (ROC) and ROC's associated area under the curve (AUC).[110]\r\nEthics[edit]\r\n\r\nMachine learning poses a host of ethical questions. Systems which are trained on datasets collected with biases may exhibit these biases upon use (algorithmic bias), thus digitizing cultural prejudices.[111] For example, in 1988, the UK's Commission for Racial Equality found that St. George's Medical School had been using a computer program trained from data of previous admissions staff and this program had denied nearly 60 candidates who were found to be either women or had non-European sounding names.[95] Using job hiring data from a firm with racist hiring policies may lead to a machine learning system duplicating the bias by scoring job applicants by similarity to previous successful applicants.[112][113] Responsible collection of data and documentation of algorithmic rules used by a system thus is a critical part of machine learning.\r\n\r\nAI can be well-equipped to make decisions in technical fields, which rely heavily on data and historical information. These decisions rely on objectivity and logical reasoning.[114] Because human languages contain biases, machines trained on language corpora will necessarily also learn these biases.[115][116]\r\n\r\nOther forms of ethical challenges, not related to personal biases, are seen in health care. There are concerns among health care professionals that these systems might not be designed in the public's interest but as income-generating machines.[117] This is especially true in the United States where there is a long-standing ethical dilemma of improving health care, but also increasing profits. For example, the algorithms could be designed to provide patients with unnecessary tests or medication in which the algorithm's proprietary owners hold stakes. There is potential for machine learning in health care to provide professionals an additional tool to diagnose, medicate, and plan recovery paths for patients, but this requires these biases to be mitigated.[118]\r\nHardware[edit]\r\n\r\nSince the 2010s, advances in both machine learning algorithms and computer hardware have led to more efficient methods for training deep neural networks (a particular narrow subdomain of machine learning) that contain many layers of non-linear hidden units.[119] By 2019, graphic processing units (GPUs), often with AI-specific enhancements, had displaced CPUs as the dominant method of training large-scale commercial cloud AI.[120] OpenAI estimated the hardware compute used in the largest deep learning projects from AlexNet (2012) to AlphaZero (2017), and found a 300,000-fold increase in the amount of compute required, with a doubling-time trendline of 3.4 months.[121][122]\r\nNeuromorphic/Physical Neural Networks[edit]\r\n\r\nA physical neural network or Neuromorphic computer is a type of artificial neural network in which an electrically adjustable material is used to emulate the function of a neural synapse. "Physical" neural network is used to emphasize the reliance on physical hardware used to emulate neurons as opposed to software-based approaches. More generally the term is applicable to other artificial neural networks in which a memristor or other electrically adjustable resistance material is used to emulate a neural synapse.[123][124]\r\nEmbedded Machine Learning[edit]\r\n\r\nEmbedded Machine Learning is a sub-field of machine learning, where the machine learning model is run on embedded systems with limited computing resources such as wearable computers, edge devices and microcontrollers.[125][126][127] Running machine learning model in embedded devices removes the need for transferring and storing data on cloud servers for further processing, henceforth, reducing data breaches and privacy leaks happening because of transferring data, and also minimizes theft of intellectual properties, personal data and business secrets. Embedded Machine Learning could be applied through several techniques including hardware acceleration,[128][129] using approximate computing,[130] optimization of machine learning models and many more.[131][132]\r\nSoftware[edit]\r\n\r\nSoftware suites containing a variety of machine learning algorithms include the following:\r\nFree and open-source software[edit]\r\n\r\n    Caffe\r\n    Microsoft Cognitive Toolkit\r\n    Deeplearning4j\r\n    DeepSpeed\r\n    ELKI\r\n    Infer.NET\r\n    Keras\r\n    LightGBM\r\n    Mahout\r\n    Mallet\r\n    ML.NET\r\n    mlpack\r\n    MXNet\r\n    Neural Lab\r\n    OpenNN\r\n    Orange\r\n    pandas (software)\r\n    ROOT (TMVA with ROOT)\r\n    scikit-learn\r\n    Shogun\r\n    Spark MLlib\r\n    SystemML\r\n    TensorFlow\r\n    Torch / PyTorch\r\n    Weka / MOA\r\n    XGBoost\r\n    Yooreeka\r\n\r\nProprietary software with free and open-source editions[edit]\r\n\r\n    KNIME\r\n    RapidMiner\r\n\r\nProprietary software[edit]\r\n\r\n    Amazon Machine Learning\r\n    Angoss KnowledgeSTUDIO\r\n    Azure Machine Learning\r\n    Ayasdi\r\n    IBM Watson Studio\r\n    Google Prediction API\r\n    IBM SPSS Modeler\r\n    KXEN Modeler\r\n    LIONsolver\r\n    Mathematica\r\n    MATLAB\r\n    Neural Designer\r\n    NeuroSolutions\r\n    Oracle Data Mining\r\n    Oracle AI Platform Cloud Service\r\n    PolyAnalyst\r\n    RCASE\r\n    SAS Enterprise Miner\r\n    SequenceL\r\n    Splunk\r\n    STATISTICA Data Miner\r\n\r\nJournals[edit]\r\n\r\n    Journal of Machine Learning Research\r\n    Machine Learning\r\n    Nature Machine Intelligence\r\n    Neural Computation\r\n\r\nConferences[edit]\r\n\r\n    AAAI Conference on Artificial Intelligence\r\n    Association for Computational Linguistics (ACL)\r\n    European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD)\r\n    International Conference on Machine Learning (ICML)\r\n    International Conference on Learning Representations (ICLR)\r\n    International Conference on Intelligent Robots and Systems (IROS)\r\n    Conference on Knowledge Discovery and Data Mining (KDD)\r\n    Conference on Neural Information Processing Systems (NeurIPS)\r\n\r\nSee also[edit]\r\n\r\n    Automated machine learning â€“ Process of automating the application of machine learning\r\n    Big data â€“ Information assets characterized by high volume, velocity, and variety\r\n    Differentiable programming â€“ Programming paradigm\r\n    List of important publications in machine learning â€“ Wikimedia list article\r\n    List of datasets for machine-learning research â€“ Wikimedia list article
+> 
+> ##### set up text #####
+> #clear text
+> tidy_text <- text_df %>%
++   unnest_tokens(word, text)
+> 
+> #set up and clear old words, stop words
+> data(stop_words)
+> de <- data.frame("thy", "OLD_WORDS")
+> names(de) <- c("word", "lexicon")
+> stop_words <- rbind(stop_words, de)
+> de <- data.frame("1", "OLD_WORDS")
+> names(de) <- c("word", "lexicon")
+> de <- data.frame("hath", "OLD_WORDS")
+> names(de) <- c("word", "lexicon")
+> de <- data.frame("mar'd", "OLD_WORDS")
+> names(de) <- c("word", "lexicon")
+> stop_words <- rbind(stop_words, de)
+> 
+> tidy_text <- tidy_text %>%
++   anti_join(stop_words)
+Joining, by = "word"
+> 
+> ##### list of word frequency #####
+> tidy_text %>%
++   count(word, sort = TRUE)
+               word   n
+1          learning 220
+2           machine 126
+3              data 106
+4          training  49
+5              edit  47
+6        algorithms  46
+7             model  37
+8        artificial  30
+9               set  30
+10           neural  24
+11          systems  23
+12       supervised  22
+13               ai  21
+14        algorithm  21
+15          methods  21
+16           models  21
+17            based  19
+18   classification  19
+19         computer  18
+20            field  18
+21         networks  17
+22         examples  16
+23        knowledge  16
+24     unsupervised  16
+25         analysis  15
+26            input  15
+27           mining  15
+28          network  15
+29            tasks  15
+30           theory  15
+31        detection  13
+32          feature  13
+33            learn  13
+34           linear  13
+35       regression  13
+36           system  13
+37         features  12
+38           inputs  12
+39          perform  12
+40      predictions  12
+41         research  12
+42             time  12
+43                â  11
+44           called  11
+45         decision  11
+46         function  11
+47     intelligence  11
+48      performance  11
+49          related  11
+50             rule  11
+51       statistics  11
+52       techniques  11
+53       dictionary  10
+54      environment  10
+55      information  10
+56          learned  10
+57           method  10
+58          neurons  10
+59          process  10
+60      programming  10
+61    reinforcement  10
+62      represented  10
+63            rules  10
+64         software  10
+65          trained  10
+66       approaches   9
+67           biases   9
+68             goal   9
+69            human   9
+70     optimization   9
+71          program   9
+72      recognition   9
+73           signal   9
+74             bias   8
+75      dimensional   8
+76            found   8
+77          genetic   8
+78         machines   8
+79           output   8
+80           sparse   8
+81      statistical   8
+82        typically   8
+83        variables   8
+84         accuracy   7
+85          applied   7
+86         approach   7
+87      association   7
+88         bayesian   7
+89            class   7
+90       conference   7
+91             deep   7
+92        discovery   7
+93   generalization   7
+94          include   7
+95           labels   7
+96         language   7
+97            logic   7
+98     mathematical   7
+99          medical   7
+100              ml   7
+101     overfitting   7
+102          people   7
+103   probabilistic   7
+104       represent   7
+105  representation   7
+106            test   7
+107            tree   7
+108          vector   7
+109         anomaly   6
+110           brain   6
+111       computers   6
+112       decisions   6
+113           image   6
+114       including   6
+115       inductive   6
+116         labeled   6
+117        negative   6
+118    observations   6
+119         outputs   6
+120         pattern   6
+121         predict   6
+122      processing   6
+123            real   6
+124        specific   6
+125           study   6
+126            task   6
+127          vision   6
+128               1   5
+129              10   5
+130        addition   5
+131     algorithmic   5
+132     application   5
+133    applications   5
+134        behavior   5
+135           black   5
+136      classifier   5
+137         cluster   5
+138      complexity   5
+139   computational   5
+140       computing   5
+141  dimensionality   5
+142        embedded   5
+143           exist   5
+144        hardware   5
+145          health   5
+146         improve   5
+147       instances   5
+148          layers   5
+149          learns   5
+150          nature   5
+151          neuron   5
+152        patterns   5
+153      performing   5
+154        positive   5
+155      previously   5
+156       reduction   5
+157 representations   5
+158     researchers   5
+159          result   5
+160         results   5
+161         science   5
+162        separate   5
+163      similarity   5
+164       situation   5
+165           space   5
+166          speech   5
+167            term   5
+168         variety   5
+169              24   4
+170               4   4
+171         attempt   4
+172      biological   4
+173             caa   4
+174            care   4
+175        clusters   4
+176          common   4
+177         complex   4
+178       component   4
+179         compute   4
+180      connection   4
+181     consequence   4
+182      considered   4
+183         context   4
+184       databases   4
+185      definition   4
+186      difference   4
+187     discovering   4
+188       effective   4
+189       evaluated   4
+190      experience   4
+191          fields   4
+192             fit   4
+193          future   4
+194            game   4
+195          google   4
+196      hypothesis   4
+197        identify   4
+198          images   4
+199        involves   4
+200           layer   4
+201         leading   4
+202            line   4
+203            list   4
+204         logical   4
+205            loss   4
+206        manifold   4
+207          matrix   4
+208         natural   4
+209          normal   4
+210         objects   4
+211         outlier   4
+212        physical   4
+213      polynomial   4
+214       potential   4
+215      prediction   4
+216      predictive   4
+217       principal   4
+218        programs   4
+219        provided   4
+220          random   4
+221            rate   4
+222  recommendation   4
+223        reducing   4
+224   relationships   4
+225               š   4
+226            sets   4
+227           solve   4
+228            step   4
+229        subfield   4
+230         support   4
+231          target   4
+232     theoretical   4
+233           trees   4
+234           types   4
+235         unknown   4
+236            2020   3
+237              25   3
+238              26   3
+239               3   3
+240         ability   3
+241         actions   3
+242      additional   3
+243     adversarial   3
+244             ann   3
+245         answers   3
+246       automated   3
+247           basis   3
+248  bioinformatics   3
+249            book   3
+250           build   3
+251           built   3
+252      categories   3
+253        changing   3
+254  characteristic   3
+255         closely   3
+256           cloud   3
+257      clustering   3
+258      collection   3
+259       concerned   3
+260        continue   3
+261        crossbar   3
+262         current   3
+263         density   3
+264         desired   3
+265          detect   3
+266       determine   3
+267       developed   3
+268         devices   3
+269       diagnosis   3
+270    distribution   3
+271         domains   3
+272             due   3
+273         dynamic   3
+274             e.g   3
+275           email   3
+276         emotion   3
+277         emulate   3
+278     engineering   3
+279         ethical   3
+280      explicitly   3
+281            fail   3
+282       federated   3
+283        feedback   3
+284         focuses   3
+285            fold   3
+286           fraud   3
+287       functions   3
+288      generating   3
+289        gorillas   3
+290           graph   3
+291          hidden   3
+292         history   3
+293             ibm   3
+294      inferences   3
+295        inspired   3
+296     intelligent   3
+297   international   3
+298           items   3
+299             kdd   3
+300          kernel   3
+301             key   3
+302            lack   3
+303         learner   3
+304         limited   3
+305             low   3
+306        maximize   3
+307       microsoft   3
+308        modeling   3
+309        multiple   3
+310         netflix   3
+311           noise   3
+312         playing   3
+313             pre   3
+314         privacy   3
+315           prize   3
+316     probability   3
+317      programmed   3
+318      properties   3
+319     proprietary   3
+320            rare   3
+321          report   3
+322  representative   3
+323      represents   3
+324         require   3
+325         respect   3
+326           robot   3
+327              sâ   3
+328          sample   3
+329          search   3
+330            semi   3
+331        sequence   3
+332         similar   3
+333      situations   3
+334       structure   3
+335          subset   3
+336         subsets   3
+337             svm   3
+338        symbolic   3
+339           terms   3
+340             toc   3
+341           train   3
+342            true   3
+343           units   3
+344       unlabeled   3
+345          unseen   3
+346           users   3
+347          values   3
+348       wikimedia   3
+349              18   2
+350              19   2
+351           1980s   2
+352            1981   2
+353           1990s   2
+354               2   2
+355            2012   2
+356            2018   2
+357            2019   2
+358              27   2
+359              28   2
+360              29   2
+361              2d   2
+362              30   2
+363              33   2
+364              3d   2
+365              40   2
+366              60   2
+367              71   2
+368              80   2
+369               9   2
+370              91   2
+371              95   2
+372      accordance   2
+373        accurate   2
+374       achieving   2
+375          action   2
+376          active   2
+377         acyclic   2
+378        adaptive   2
+379      adjustable   2
+380         adopted   2
+381          advice   2
+382           agent   2
+383      aggregated   2
+384             aim   2
+385          amount   2
+386       analytics   2
+387       anomalies   2
+388      applicants   2
+389           apply   2
+390           array   2
+391             art   2
+392         article   2
+393        assigned   2
+394      assumption   2
+395     assumptions   2
+396        attempts   2
+397      background   2
+398      behavioral   2
+399          biased   2
+400        boundary   2
+401          bounds   2
+402        branches   2
+403           broad   2
+404           brown   2
+405          burden   2
+406        business   2
+407            call   2
+408      challenges   2
+409          chance   2
+410         changed   2
+411        classify   2
+412       cognitive   2
+413       collected   2
+414    collectively   2
+415   commonalities   2
+416        commonly   2
+417      components   2
+418     computation   2
+419     conferences   2
+420       connected   2
+421        consists   2
+422      constraint   2
+423       continued   2
+424      continuous   2
+425        contrast   2
+426         control   2
+427         correct   2
+428       correctly   2
+429         created   2
+430           cross   2
+431        customer   2
+432         dataset   2
+433        datasets   2
+434            days   2
+435         dealing   2
+436       decreases   2
+437         defined   2
+438        defining   2
+439         deliver   2
+440    denominators   2
+441        designed   2
+442         develop   2
+443      deviations   2
+444      diagnostic   2
+445       difficult   2
+446          digits   2
+447       dimension   2
+448        directed   2
+449      discipline   2
+450     disciplines   2
+451        discover   2
+452        diseases   2
+453         divides   2
+454        dominant   2
+455           drawn   2
+456         driving   2
+457            ecml   2
+458           edges   2
+459       efficient   2
+460    electrically   2
+461        emotions   2
+462        employed   2
+463         employs   2
+464     encompasses   2
+465       engineers   2
+466           error   2
+467       estimated   2
+468      estimation   2
+469          ethics   2
+470        european   2
+471      evaluation   2
+472           exact   2
+473         explain   2
+474         express   2
+475        external   2
+476          failed   2
+477           falls   2
+478           false   2
+479             fei   2
+480       filtering   2
+481       financial   2
+482         finding   2
+483            firm   2
+484            form   2
+485           forms   2
+486            free   2
+487      frequently   2
+488           goals   2
+489       graphical   2
+490            hand   2
+491       heuristic   2
+492          hiring   2
+493         holdout   2
+494          horses   2
+495          humans   2
+496      hypotheses   2
+497  identification   2
+498             ilp   2
+499         impacts   2
+500 implementations   2
+ [ reached 'max' / getOption("max.print") -- omitted 1282 rows ]
+> 
+...
+439          decision making   2
+440           decision trees   2
+441          decisions about   2
+442          desired outputs   2
+443            determine the   2
+444             dimension of   2
+445         dimensional data   2
+446         directed acyclic   2
+447            discovery and   2
+448             discovery in   2
+449             discovery of   2
+450              divides the   2
+451            each training   2
+452                ecml pkdd   2
+453        either supervised   2
+454  electrically adjustable   2
+455          environment the   2
+456           evaluated with   2
+457               example in   2
+458              example the   2
+459            examples each   2
+460             experience e   2
+461    explicitly programmed   2
+462                  fail to   2
+463                failed to   2
+464             features are   2
+465       federated learning   2
+466               field that   2
+467           find structure   2
+468          for discovering   2
+469                 forms of   2
+470                 found in   2
+471               found that   2
+472          fraud detection   2
+473                 free and   2
+474           from different   2
+475              function of   2
+476            function that   2
+477             game against   2
+478        genetic algorithm   2
+479      genetic environment   2
+480                  goal is   2
+481                  goal of   2
+482          graphical model   2
+483                   have a   2
+484         high dimensional   2
+485            however these   2
+486              human brain   2
+487            hypothesis is   2
+488               ibm watson   2
+489               identify a   2
+490                  in 1981   2
+491                  in 2018   2
+492            in accordance   2
+493        in classification   2
+494              in contrast   2
+495                  in each   2
+496                in health   2
+497                   in its   2
+498                 in large   2
+499              in learning   2
+500                  in many   2
+ [ reached 'max' / getOption("max.print") -- omitted 5528 rows ]
+> 
+> #Podziel bigram na 2 kolumnowa strukture
+> bigrams_separated <- text_bigrams %>% separate(bigram, c("word1", "word2"), sep = " ")
+> 
+> #Usun wiersze występujące w stop_words
+> bigrams_filtered <- bigrams_separated %>%
++   filter(!word1 %in% stop_words$word) %>%
++   filter(!word2 %in% stop_words$word)
+> 
+> #liczebnosc nowego bigramu
+> bigrams_counts <- bigrams_filtered %>%
++   count(word1, word2, sort = TRUE)
+> 
+> bigrams_counts
+             word1           word2   n
+1          machine        learning 115
+2         learning      algorithms  25
+3       supervised        learning  14
+4         training            data  14
+5             data          mining  12
+6           neural        networks  11
+7     unsupervised        learning  11
+8         learning            edit  10
+9       artificial    intelligence   8
+10      artificial          neural   8
+11         feature        learning   8
+12   reinforcement        learning   8
+13      artificial         neurons   7
+14            data             set   7
+15      dictionary        learning   7
+16            edit         machine   7
+17          neural         network   7
+18         anomaly       detection   6
+19            deep        learning   6
+20        learning       algorithm   6
+21      artificial          neuron   5
+22           based         machine   5
+23        computer          vision   5
+24  dimensionality       reduction   5
+25        learning           model   5
+26           logic     programming   5
+27            rule           based   5
+28          sparse      dictionary   5
+29              24               â   4
+30        bayesian        networks   4
+31        decision            tree   4
+32       detection      techniques   4
+33          health            care   4
+34       knowledge       discovery   4
+35        learning          models   4
+36        learning          system   4
+37    mathematical           model   4
+38            rule        learning   4
+39          speech     recognition   4
+40         support          vector   4
+41        training        examples   4
+42        training             set   4
+43     association            rule   3
+44     association           rules   3
+45        bayesian         network   3
+46      biological           brain   3
+47         closely         related   3
+48         cluster        analysis   3
+49        computer         program   3
+50     consequence       situation   3
+51            data            data   3
+52        embedded         machine   3
+53        examples         include   3
+54         genetic      algorithms   3
+55       inductive           logic   3
+56   international      conference   3
+57        learning      approaches   3
+58        learning          method   3
+59        learning         methods   3
+60        learning   reinforcement   3
+61        learning        research   3
+62        learning          theory   3
+63             low     dimensional   3
+64         medical       diagnosis   3
+65         natural        language   3
+66        networks            edit   3
+67         outlier       detection   3
+68         pattern     recognition   3
+69        physical          neural   3
+70      polynomial            time   3
+71            semi      supervised   3
+72        software            edit   3
+73            test             set   3
+74        training            sets   3
+75               4              29   2
+76               â           š488â   2
+77               â       wikimedia   2
+78        accurate     predictions   2
+79     algorithmic            bias   2
+80     algorithmic           model   2
+81      algorithms             aim   2
+82      algorithms         attempt   2
+83      algorithms           build   2
+84      algorithms         include   2
+85           apply       knowledge   2
+86       automated         machine   2
+87      background       knowledge   2
+88      behavioral     environment   2
+89           black          people   2
+90           broad      categories   2
+91           class          labels   2
+92      classifier         systems   2
+93       component        analysis   2
+94   computational        learning   2
+95        computer         science   2
+96         correct         answers   2
+97           cross      validation   2
+98            data        examples   2
+99        decision           trees   2
+100        desired         outputs   2
+101    dimensional            data   2
+102       directed         acyclic   2
+103           ecml            pkdd   2
+104   electrically      adjustable   2
+105     explicitly      programmed   2
+106      federated        learning   2
+107          fraud       detection   2
+108        genetic       algorithm   2
+109        genetic     environment   2
+110      graphical           model   2
+111          human           brain   2
+112            ibm          watson   2
+113    information       retrieval   2
+114          input            data   2
+115          input       variables   2
+116      intrusion       detection   2
+117         kernel           trick   2
+118      knowledge           based   2
+119        labeled        training   2
+120       language      processing   2
+121        learned  representation   2
+122       learning               â   2
+123       learning      classifier   2
+124       learning            data   2
+125       learning        features   2
+126       learning              ml   2
+127       learning        programs   2
+128       learning         systems   2
+129       learning      technology   2
+130    limitations            edit   2
+131         linear        boundary   2
+132         linear  classification   2
+133         linear        function   2
+134         linear      regression   2
+135           list         article   2
+136        machine     translation   2
+137       manifold        learning   2
+138           meta        learning   2
+139         mining             kdd   2
+140          model           based   2
+141         models            edit   2
+142       negative        examples   2
+143       negative            rate   2
+144         neural         synapse   2
+145      operating  characteristic   2
+146        perform           tasks   2
+147       positive            rate   2
+148     previously         unknown   2
+149    proprietary        software   2
+150         random       variables   2
+151           real           world   2
+152      reduction      techniques   2
+153     regression        analysis   2
+154        related           field   2
+155          robot        learning   2
+156          š488â               š   2
+157       sequence          mining   2
+158       sparsely     represented   2
+159    statistical  classification   2
+160    statistical        learning   2
+161         strong           rules   2
+162     supervised         anomaly   2
+163     supervised         methods   2
+164            svm        training   2
+165         target        variable   2
+166           test            data   2
+167           time      complexity   2
+168       training       algorithm   2
+169       training          labels   2
+170       training         machine   2
+171       training         process   2
+172         vector        machines   2
+173      wikimedia            list   2
+174              1               3   1
+175              1         million   1
+176              1          subset   1
+177              1         subsets   1
+178             10          digits   1
+179             10         history   1
+180         10,000            days   1
+181            101         similar   1
+182            104         concern   1
+183            105     overfitting   1
+184            107             108   1
+185            108     adversarial   1
+186             11              12   1
+187            110          ethics   1
+188            112             113   1
+189            113     responsible   1
+190            115             116   1
+191            118        hardware   1
+192            120          openai   1
+193            121             122   1
+194            122    neuromorphic   1
+195            123             124   1
+196            124        embedded   1
+197            125             126   1
+198            126             127   1
+199            127         running   1
+200            128             129   1
+201             13              14   1
+202            130    optimization   1
+203            131             132   1
+204            132        software   1
+205             17             tom   1
+206             18           types   1
+207             19              82   1
+208             19          modern   1
+209           1973              16   1
+210           1980          expert   1
+211          1990s              71   1
+212              2               3   1
+213              2         machine   1
+214             20      artificial   1
+215          2010s        advances   1
+216           2015          google   1
+217           2016       microsoft   1
+218           2019         graphic   1
+219           2019        springer   1
+220           2020            deep   1
+221           2020         machine   1
+222             23   probabilistic   1
+223             26  classification   1
+224             26         letters   1
+225             27              28   1
+226             28              25   1
+227             28          theory   1
+228             29              30   1
+229             29  generalization   1
+230              3            test   1
+231              3        training   1
+232            3.4          months   1
+233             30            data   1
+234        300,000            fold   1
+235             31  generalization   1
+236             33             leo   1
+237             37   reinforcement   1
+238             38   reinforcement   1
+239              4         special   1
+240              4      supervised   1
+241             40      characters   1
+242             44         feature   1
+243             45         classic   1
+244             47              48   1
+245             48              49   1
+246             49        manifold   1
+247              5               6   1
+248             50            deep   1
+249             51         feature   1
+250             53         anomaly   1
+251             54       typically   1
+252             57    unsupervised   1
+253             58              59   1
+254             60      candidates   1
+255             60            rule   1
+256             61            rule   1
+257             63       inductive   1
+258             64              65   1
+259             65              66   1
+260             66         shapiro   1
+261             68        decision   1
+262              7               8   1
+263             70        logistic   1
+264             71              72   1
+265             71               â   1
+266            710               â   1
+267             72      conversely   1
+268             73        training   1
+269             74    applications   1
+270             76         shortly   1
+271             82         machine   1
+272             83        recently   1
+273             84              85   1
+274             85              86   1
+275             86     limitations   1
+276             87              88   1
+277             88              89   1
+278             89         reasons   1
+279              9         machine   1
+280             91        attempts   1
+281             91           minut   1
+282             92              93   1
+283             93         machine   1
+284             94            bias   1
+285             95        language   1
+286             96              97   1
+287             97         machine   1
+288             98              99   1
+289              â              91   1
+290              â     information   1
+291              â         process   1
+292              â     programming   1
+293              â            š25â   1
+294              â           š708â   1
+295              â           š755â   1
+296           aaai      conference   1
+297        ability             toc   1
+298       abstract        features   1
+299       academic      discipline   1
+300   acceleration             128   1
+301     accomplish           tasks   1
+302       accuracy             109   1
+303       accuracy      estimation   1
+304       accuracy   investigators   1
+305      achieving      artificial   1
+306            acl        european   1
+307         active        learning   1
+308         active           topic   1
+309        acyclic           graph   1
+310        acyclic       graphical   1
+311        adapted            form   1
+312       adaptive           array   1
+313       adaptive         website   1
+314     additional      artificial   1
+315     additional            data   1
+316     additional            tool   1
+317     adjustable        material   1
+318     adjustable      resistance   1
+319     admissions           staff   1
+320        adopted         methods   1
+321       advanced           tasks   1
+322    adversarial          images   1
+323    adversarial           pixel   1
+324    adversarial vulnerabilities   1
+325    advertising    optimization   1
+326         advice           input   1
+327      affective       computing   1
+328          agent     interacting   1
+329          agent         systems   1
+330      aggregate          signal   1
+331     aggregated   appropriately   1
+332        agrawal          tomasz   1
+333    agriculture         anatomy   1
+ [ reached 'max' / getOption("max.print") -- omitted 1571 rows ]
+> 
+> #polacz kolumny ponownie
+> bigrams_united <- bigrams_filtered %>%
++   unite(bigram, word1, word2, sep = " ")
+> 
+> bigrams_united
+    line                    bigram
+1      1          machine learning
+2      1     learning contributors
+3      1        wikimedia projects
+4      1               projects 71
+5      1                      71 â
+6      1                      â 91
+7      1                  91 minut
+8      1             minut machine
+9      1          machine learning
+10     1               learning ml
+11     1       computer algorithms
+12     1     improve automatically
+13     1                    data 1
+14     1   artificial intelligence
+15     1      intelligence machine
+16     1          machine learning
+17     1       learning algorithms
+18     1          algorithms build
+19     1               model based
+20     1               sample data
+21     1             training data
+22     1     explicitly programmed
+23     1                 2 machine
+24     1          machine learning
+25     1       learning algorithms
+26     1              wide variety
+27     1            medicine email
+28     1           email filtering
+29     1          filtering speech
+30     1        speech recognition
+31     1           computer vision
+32     1      develop conventional
+33     1   conventional algorithms
+34     1                   tasks 3
+35     1          machine learning
+36     1           closely related
+37     1  computational statistics
+38     1          machine learning
+39     1      statistical learning
+40     1 mathematical optimization
+41     1     optimization delivers
+42     1          delivers methods
+43     1            methods theory
+44     1       application domains
+45     1          machine learning
+46     1             learning data
+47     1               data mining
+48     1             related field
+49     1            study focusing
+50     1          exploratory data
+51     1             data analysis
+52     1     unsupervised learning
+53     1                learning 5
+54     1                       5 6
+55     1          machine learning
+56     1           neural networks
+57     1          biological brain
+58     1                   brain 7
+59     1                       7 8
+60     1          machine learning
+61     1      predictive analytics
+62     1        analytics overview
+63     1             overview edit
+64     1             edit learning
+65     1       learning algorithms
+66     1     strategies algorithms
+67     1                  sun rose
+68     1               10,000 days
+69     1             rise tomorrow
+70     1          tomorrow morning
+71     1   geographically separate
+72     1          separate species
+73     1            color variants
+74     1        undiscovered black
+75     1               black swans
+76     1               swans exist
+77     1                   exist 9
+78     1                 9 machine
+79     1          machine learning
+80     1         learning programs
+81     1             perform tasks
+82     1     explicitly programmed
+83     1        involves computers
+84     1        computers learning
+85     1             data provided
+86     1              simple tasks
+87     1            tasks assigned
+88     1        program algorithms
+89     1        algorithms telling
+90     1            steps required
+91     1            advanced tasks
+92     1           manually create
+93     1           machine develop
+94     1         human programmers
+95     1                   step 10
+96     1          machine learning
+97     1          learning employs
+98     1           teach computers
+99     1          accomplish tasks
+100    1    satisfactory algorithm
+101    1         potential answers
+102    1             answers exist
+103    1           correct answers
+104    1             training data
+105    1         determine correct
+106    1           correct answers
+107    1         digital character
+108    1     character recognition
+109    1             mnist dataset
+110    1        handwritten digits
+111    1                10 history
+112    1               fields edit
+113    1              term machine
+114    1          machine learning
+115    1             arthur samuel
+116    1            american ibmer
+117    1           computer gaming
+118    1   artificial intelligence
+119    1           intelligence 11
+120    1                     11 12
+121    1        teaching computers
+122    1               time period
+123    1                 period 13
+124    1                     13 14
+125    1       representative book
+126    1          machine learning
+127    1         learning research
+128    1            nilsson's book
+129    1         learning machines
+130    1          machines dealing
+131    1          machine learning
+132    1    pattern classification
+133    1         classification 15
+134    1       pattern recognition
+135    1     recognition continued
+136    1                   1973 16
+137    1       teaching strategies
+138    1            neural network
+139    1            network learns
+140    1              recognize 40
+141    1             40 characters
+142    1             characters 26
+143    1                26 letters
+144    1                letters 10
+145    1                 10 digits
+146    1                 4 special
+147    1           special symbols
+148    1         computer terminal
+149    1               terminal 17
+150    1                    17 tom
+151    1         mitchell provided
+152    1             widely quoted
+153    1         formal definition
+154    1        algorithms studied
+155    1          machine learning
+156    1            learning field
+157    1          computer program
+158    1       performance measure
+159    1          machine learning
+160    1          concerned offers
+161    1 fundamentally operational
+162    1    operational definition
+163    1           cognitive terms
+164    1             alan turing's
+165    1         turing's proposal
+166    1           paper computing
+167    1       computing machinery
+168    1         thinking entities
+169    1                 19 modern
+170    1                modern day
+171    1               day machine
+172    1          machine learning
+173    1             classify data
+174    1                data based
+175    1           future outcomes
+176    1            outcomes based
+177    1    hypothetical algorithm
+178    1        algorithm specific
+179    1          classifying data
+180    1           computer vision
+181    1             moles coupled
+182    1       supervised learning
+183    1           cancerous moles
+184    1          machine learning
+185    1        learning algorithm
+186    1             stock trading
+187    1          future potential
+188    1     potential predictions
+189    1            predictions 20
+190    1             20 artificial
+191    1   artificial intelligence
+192    1         intelligence edit
+193    1              edit machine
+194    1          machine learning
+195    1                     ai 21
+196    1          machine learning
+197    1          machine learning
+198    1               learning 22
+199    1       scientific endeavor
+200    1          endeavor machine
+201    1          machine learning
+202    1             learning grew
+203    1   artificial intelligence
+204    1       academic discipline
+205    1            machines learn
+206    1          symbolic methods
+207    1             termed neural
+208    1           neural networks
+209    1        generalized linear
+210    1             linear models
+211    1             statistics 23
+212    1          23 probabilistic
+213    1   probabilistic reasoning
+214    1         automated medical
+215    1         medical diagnosis
+216    1              diagnosis 24
+217    1                      24 â
+218    1                   â š488â
+219    1                   š488â š
+220    1       increasing emphasis
+221    1         logical knowledge
+222    1           knowledge based
+223    1            based approach
+224    1           approach caused
+225    1          machine learning
+226    1    learning probabilistic
+227    1     probabilistic systems
+228    1          data acquisition
+229    1         representation 24
+230    1                      24 â
+231    1                   â š488â
+232    1                   š488â š
+233    1               1980 expert
+234    1            expert systems
+235    1               dominate ai
+236    1                  favor 25
+237    1        symbolic knowledge
+238    1           knowledge based
+239    1            based learning
+240    1                ai leading
+241    1           inductive logic
+242    1         logic programming
+243    1          statistical line
+244    1                 ai proper
+245    1       pattern recognition
+246    1     information retrieval
+247    1              retrieval 24
+248    1                      24 â
+249    1                   â š708â
+250    1                 š708â 710
+251    1                     710 â
+252    1                   â š755â
+253    1                   š755â š
+254    1                  š neural
+255    1           neural networks
+256    1         networks research
+257    1          computer science
+258    1                     ai cs
+259    1                  cs field
+260    1     disciplines including
+261    1        including hopfield
+262    1        hopfield rumelhart
+263    1              main success
+264    1                 mid 1980s
+265    1        backpropagation 24
+266    1                      24 â
+267    1                    â š25â
+268    1                    š25â š
+269    1                 š machine
+270    1          machine learning
+271    1               learning ml
+272    1            ml reorganized
+273    1            separate field
+274    1             field started
+275    1             field changed
+276    1      achieving artificial
+277    1   artificial intelligence
+278    1         tackling solvable
+279    1          practical nature
+280    1             shifted focus
+281    1       symbolic approaches
+282    1           models borrowed
+283    1        probability theory
+284    1                 theory 25
+285    1  frequently misunderstood
+286    1          misunderstood ml
+287    1                 ml learns
+288    1            predicts based
+289    1      passive observations
+290    1                ai implies
+291    1         agent interacting
+292    1    successfully achieving
+293    1                  goals 26
+294    1          sources continue
+295    1                ml remains
+296    1                     ai 27
+297    1                     27 28
+298    1                     28 25
+299    1        intelligent subset
+300    1             considered ai
+301    1                      ai 4
+302    1                      4 29
+303    1                     29 30
+304    1                   30 data
+305    1               data mining
+306    1               mining edit
+307    1              edit machine
+308    1          machine learning
+309    1               data mining
+310    1     overlap significantly
+311    1          machine learning
+312    1          learning focuses
+313    1          prediction based
+314    1        properties learned
+315    1             training data
+316    1                 data data
+317    1               data mining
+318    1            mining focuses
+319    1        previously unknown
+320    1        unknown properties
+321    1             analysis step
+322    1       knowledge discovery
+323    1            databases data
+324    1               data mining
+325    1          machine learning
+326    1          learning methods
+327    1              hand machine
+328    1          machine learning
+329    1              employs data
+330    1               data mining
+331    1            mining methods
+332    1     unsupervised learning
+333    1        preprocessing step
+334    1           improve learner
+335    1          learner accuracy
+336    1      research communities
+337    1      separate conferences
+338    1         separate journals
+339    1             journals ecml
+340    1                 ecml pkdd
+341    1           major exception
+342    1         basic assumptions
+343    1          machine learning
+344    1      learning performance
+345    1       knowledge discovery
+346    1               data mining
+347    1                mining kdd
+348    1                  key task
+349    1        previously unknown
+350    1         unknown knowledge
+351    1       knowledge evaluated
+352    1   uninformed unsupervised
+353    1       unsupervised method
+354    1        supervised methods
+355    1               typical kdd
+356    1                  kdd task
+357    1           task supervised
+358    1        supervised methods
+359    1             training data
+360    1         data optimization
+361    1         optimization edit
+362    1              edit machine
+363    1          machine learning
+364    1             intimate ties
+365    1             loss function
+366    1              training set
+367    1             examples loss
+368    1            loss functions
+369    1         functions express
+370    1         correctly predict
+371    1              pre assigned
+372    1           assigned labels
+373    1               examples 31
+374    1         31 generalization
+375    1       generalization edit
+376    1          machine learning
+377    1           learning arises
+378    1   optimization algorithms
+379    1              training set
+380    1               set machine
+381    1          machine learning
+382    1            unseen samples
+383    1    samples characterizing
+384    1       learning algorithms
+385    1              active topic
+386    1          current research
+387    1             deep learning
+388    1       learning algorithms
+389    1     algorithms statistics
+390    1           statistics edit
+391    1              edit machine
+392    1          machine learning
+393    1           closely related
+394    1            related fields
+395    1            principal goal
+396    1           goal statistics
+397    1          statistics draws
+398    1          draws population
+399    1     population inferences
+400    1          machine learning
+401    1  generalizable predictive
+402    1       predictive patterns
+403    1               patterns 32
+404    1          machine learning
+405    1 methodological principles
+406    1         theoretical tools
+407    1               pre history
+408    1             statistics 33
+409    1                 term data
+410    1              data science
+411    1                  field 33
+412    1                    33 leo
+413    1               leo breiman
+414    1     breiman distinguished
+415    1      statistical modeling
+416    1        modeling paradigms
+417    1            paradigms data
+418    1                data model
+419    1         algorithmic model
+420    1                  model 27
+421    1         algorithmic model
+422    1               model means
+423    1          machine learning
+424    1       learning algorithms
+425    1             random forest
+426    1           adopted methods
+427    1          machine learning
+428    1          learning leading
+429    1            combined field
+430    1          call statistical
+431    1      statistical learning
+432    1               learning 28
+433    1                 28 theory
+434    1               theory edit
+435    1            core objective
+436    1              experience 4
+437    1                      4 29
+438    1         29 generalization
+439    1          learning machine
+440    1        perform accurately
+441    1           unseen examples
+442    1            examples tasks
+443    1             learning data
+444    1                  data set
+445    1         training examples
+446    1       unknown probability
+447    1  probability distribution
+448    1   distribution considered
+449    1 considered representative
+450    1      produce sufficiently
+451    1     sufficiently accurate
+452    1      accurate predictions
+453    1    computational analysis
+454    1          machine learning
+455    1       learning algorithms
+456    1      theoretical computer
+457    1          computer science
+458    1    computational learning
+459    1           learning theory
+460    1             training sets
+461    1        uncertain learning
+462    1           learning theory
+463    1          yield guarantees
+464    1      probabilistic bounds
+465    1            biasâ variance
+466    1    variance decomposition
+467    1   quantify generalization
+468    1      generalization error
+469    1       function underlying
+470    1            training error
+471    1           error decreases
+472    1                 poorer 30
+473    1        performance bounds
+474    1           bounds learning
+475    1        learning theorists
+476    1           theorists study
+477    1           time complexity
+478    1    computational learning
+479    1           learning theory
+480    1       considered feasible
+481    1           polynomial time
+482    1           time complexity
+483    1        complexity results
+484    1          results positive
+485    1          positive results
+486    1           polynomial time
+487    1             time negative
+488    1          negative results
+489    1           polynomial time
+490    1           time approaches
+491    1           approaches edit
+492    1              edit machine
+493    1          machine learning
+494    1       learning approaches
+495    1     traditionally divided
+496    1          broad categories
+497    1      categories depending
+498    1           learning system
+499    1         system supervised
+500    1       supervised learning
+ [ reached 'max' / getOption("max.print") -- omitted 1918 rows ]
+> 
+> ##### Konstruowanie grafow #####
+> # Znajdz tylko relatywnie czeste kombinacje
+> bigram_graph <- bigrams_counts %>%
++   filter(word1 == "algorithm" | word2 == "algorithm") %>%
++   graph_from_data_frame()
+> 
+> bigram_graph4 <- bigrams_counts %>%
++   filter(word1 == "machine" | word2 == "machine") %>%
++   graph_from_data_frame()
+> 
+> bigram_graph5 <- bigrams_counts %>%
++   filter(word1 == "software" | word2 == "software") %>%
++   graph_from_data_frame()
+> 
+> 
+> ##### Wyswietlanie grafow #####
+> dev.new()
+NULL
+> ggraph(bigram_graph4, layout = "fr") +
++   geom_edge_link(aes(edge_alpha = n), show.legend = TRUE, arrow = NULL, end_cap = circle(.07, "inches")) +
++   geom_node_point(color = "lightblue", size = 5) + 
++   geom_node_text(aes(label = name), position = "identity") + 
++   theme_void()
+> 
+> dev.new(width = 550, height = 330, unit = "px")
+NULL
+> ggraph(bigram_graph5, layout = "fr") + 
++   geom_edge_link(aes(edge_alpha = n), show.legend = TRUE, arrow = NULL, end_cap = circle(.07, "inches")) +
++   geom_node_point(color = "lightblue", size = 5) + 
++   geom_node_text(aes(label = name), position = "identity") + 
++   theme_void()
+> 
+> # Pierwszy poziom
+> bigram_graph1 <- bigrams_counts %>%
++   filter(word1 %in% c("text", "characters") | word2 %in% c("text", "characters"))
+> 
+> # Drugi poziom
+> bigram_graph2 <- bigrams_counts %>%
++   filter(word1 %in% bigram_graph1$word1 | word1 %in% bigram_graph1$word2 | 
++            word2 %in% bigram_graph1$word1 | word2 %in% bigram_graph1$word2)
+> 
+> # Trzeci poziom
+> bigram_graph3 <- bigrams_counts %>%
++   filter(word1 %in% bigram_graph2$word1 | word1 %in% bigram_graph2$word2 | 
++            word2 %in% bigram_graph2$word1 | word2 %in% bigram_graph2$word2)
+> 
+> bigram_graph
+IGRAPH 6934659 DN-- 18 17 -- 
++ attr: name (v/c), n (e/n)
++ edges from 6934659 (vertex names):
+ [1] learning      ->algorithm genetic       ->algorithm training      ->algorithm algorithm     ->builds   
+ [5] algorithm     ->computes  algorithm     ->ga        algorithm     ->leaving   algorithm     ->sparse   
+ [9] algorithm     ->specific  algorithm     ->updates   analysis      ->algorithm classification->algorithm
+[13] hypothetical  ->algorithm recommendation->algorithm satisfactory  ->algorithm search        ->algorithm
+[17] svd           ->algorithm
+> 
+> set.seed(2016)
+> 
+> a <- grid::arrow(type = "closed", length = unit(.15, "inches"))
+> 
+> ggraph(bigram_graph1 %>% graph_from_data_frame(), layout = "fr") +
++   geom_edge_link(aes(edge_alpha = n), show.legend = TRUE, arrow = a, end_cap = circle(.07, "inches")) +
++   geom_node_point(color = "lightblue", size = 5) +
++   geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
++   theme_void()
+> 
+> ggraph(bigram_graph2 %>% graph_from_data_frame(), layout = "fr") +
++   geom_edge_link(aes(edge_alpha = n), show.legend = TRUE, arrow = a, end_cap = circle(.07, "inches")) +
++   geom_node_point(color = "lightblue", size = 5) +
++   geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
++   theme_void()
+> 
+> dev.new()
+NULL
+> ggraph(bigram_graph3 %>% graph_from_data_frame(), layout = "fr") +
++   geom_edge_link(aes(edge_alpha = n + 5), show.legend = TRUE, arrow = a, end_cap = circle(.07, "inches")) +
++   geom_node_point(color = "lightblue", size = 5) +
++   geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
++   theme_void()
+>
